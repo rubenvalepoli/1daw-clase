@@ -1,0 +1,51 @@
+
+header {
+    text-align: center;
+    position: relative;
+    background-color: #19C1B8;
+    border-radius: 10px;
+}
+
+#imgposition1 {
+    position: relative;
+    height: 50%;
+    width: 50%;
+    flex: 1;
+}
+
+#imgposition2 {
+    position: relative;
+    height: 50%; 
+    left: 5px;
+    width: 50%;
+    flex: 1;
+}
+
+#positiongalery1 {
+    position: relative;
+    height: 300px;
+    flex: 1;
+    
+}
+
+#flex {
+    display: flex;
+}
+
+
+footer {
+    position: relative;
+    height: 60px;
+    background-color: darkslategrey;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+
+
+
+
+img {
+        border-radius: 10px;
+}
