@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formularios</title>
+</head>
+
+<body>
+
+    <h1>Información sobre el producto</h1>
+
+    <form enctype="multipart/form-data">
+
+        <fieldset>
+            <legend>Datos básicos</legend>
+
+            <label for="nombre">Nombre</label> <br/>
+            <input type="text" id="nombre" name="nombre" value=""/> <br/><br/>
+
+            <label for="descripcion">Descripción</label> <br/>
+            <textarea id="descripcion" name="descripcion" cols="50" rows="7"></textarea><br/><br/>
+
+            <label for="imagen">Foto</label>
+            <input type="text" name="imagen" value="" size="15" />
+            <input type="file" name="adjunto"/> <br/> <br/>
+
+            <input type="checkbox">
+            <label for="contador">Añadir contador de visitas</label>
+
+
+
+
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Datos económicos</legend>
+
+            <label for="precio">Precio
+                <input type="number" id="precio" style="width: 55px;" />
+                €
+            </label> &emsp;&emsp;
+
+            <label for="impuesto">Impuesto</label>
+            <select>
+                <option value="">4%</option>
+                <option value="">7%</option>
+                <option value="">16%</option>
+                <option value="">25%</option>
+            </select> <br/><br/>
+
+            <label for="impuesto">Promoción</label> <br />
+            <input type="radio" name="promocion" value="Ninguno" checked="cheked" /> Ninguno <br/>
+            <input type="radio" name="promocion" value="transporte"/> Transporte gratuito <br/>
+            <input type="radio" name="promocion" value="descuento"/> Descuento 5% <br/>
+
+        </fieldset>
+        <br/>
+        <input type="submit" value="Enviar"/>
+        <input type="reset" name="Limpiar"value="Eliminar"/>
+
+    </form>
+
+
+
+</body>
+
+</html>
