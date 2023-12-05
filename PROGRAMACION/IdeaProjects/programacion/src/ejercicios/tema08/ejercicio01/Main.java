@@ -17,7 +17,7 @@ public class Main {
         coche2.setColor("gris");
         coche2.setMarca("Opel");
         coche2.setModelo("Zafira");
-        coche2.setNumeroBastidor(247826);
+        coche2.setNumeroBastidor(123456);
         coche2.setVelocidad(30);
 
         coche3.setColor("amarillo");
@@ -57,6 +57,17 @@ public class Main {
     flota.addCar(coche1);
     flota.addCar(coche2);
     flota.addCar(coche3);
+
+//    flota.showcoche();
+
+        flota.toString();
+
+    flota.removeCar(coche3.getNumeroBastidor());
+
+//    flota.showcoche();
+        flota.toString();
+
+
 
     }
 }
