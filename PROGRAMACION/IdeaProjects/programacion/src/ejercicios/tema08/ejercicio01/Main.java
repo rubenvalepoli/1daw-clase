@@ -7,6 +7,13 @@ public class Main {
         Coche coche2 = new Coche();
         Coche coche3 = new Coche();
         Flota flota = new Flota();
+        Conductor conductor1 = new Conductor();
+        Conductor conductor2 = new Conductor();
+        Conductor conductor3 = new Conductor();
+
+        conductor1.setNombre("pepe");
+        conductor2.setNombre("Ruben");
+        conductor3.setNombre("Sole");
 
         coche1.setColor("rojo");
         coche1.setMarca("Ford");
@@ -25,6 +32,7 @@ public class Main {
         coche3.setModelo("Rio");
         coche3.setNumeroBastidor(8624594);
         coche3.setVelocidad(50);
+
 
        /* EJERCICIO 1 System.out.println(String.format("Mi coche es un %s %s de color %s con número de bastidor %d",
             coche1.getMarca(),
@@ -54,19 +62,35 @@ public class Main {
 
 /*EJERCICIO 5*/
 
-    flota.addCar(coche1);
+ /*   flota.addCar(coche1);
     flota.addCar(coche2);
-    flota.addCar(coche3);
+    flota.addCar(coche3);*/
 
 //    flota.showcoche();
 
-        flota.toString();
 
-    flota.removeCar(coche3.getNumeroBastidor());
 
 //    flota.showcoche();
-        flota.toString();
 
+
+/*EJERCICIO 7*/
+
+/*        flota.addCar(coche1);
+        flota.addCar(coche2);
+        flota.addCar(coche3);
+
+        flota.toString();
+        flota.removeCar(coche3.getNumeroBastidor());
+        flota.toString();*/
+
+/*EJERCICIO 8*/
+
+        conductor1.cocheasignado(coche1);
+        conductor1.mostrarcocheasignado();
+        conductor2.cocheasignado(coche2);
+        conductor2.mostrarcocheasignado();
+        conductor3.cocheasignado(coche3);
+        conductor3.mostrarcocheasignado();
 
 
     }
