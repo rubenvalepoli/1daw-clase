@@ -1,7 +1,5 @@
 sudo su
 contraseña= estudiante
 
-mysql "da error"
-
 mysql -u root -p
 contraseña= estudiante
