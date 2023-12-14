@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#myid {
+    background-color: #aaaaff;
+}
+
+.myclass {
+    color: #f71638;
+}
+#myid2 {
+    background-color: #f00;
+}
+
+.myclass2 {
+    color: #00f;
+}
