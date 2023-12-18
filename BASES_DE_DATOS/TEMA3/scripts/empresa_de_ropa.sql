@@ -1,94 +1,91 @@
-create database tienda_ropa;
+create database if not exists tienda_ropa;
 use tienda_ropa;
 
 create table factura(
-	num_factura int primary key not null,
+	num_factura int primary key auto_increment,
     cantidad int not null,
     total int not null,
     fecha date not null,
-    dto mediumtext not null	
+    dto float(3,2) not null	
 );
 
 create table cliente(
-	id_cliente int primary key not null,
-    dni varchar (20) not null ,
-    num varchar(10) not null,
-	ap1 mediumtext not null,
-    ap2 mediumtext not null
+	id_cliente int primary key auto_increment,
+    dni char(9) not null ,
+    nombre varchar(25) not null,
+	ap1 varchar(25) not null,
+    ap2 varchar(25) not null
 );
 
-create table cliente_2(
+create table telefonos_cliente(
 	id_cliente int not null,
-    telefono varchar(15) not null,
+    telefono char(12) not null,
     primary key (id_cliente, telefono),
     foreign key (id_cliente) references cliente (id_cliente) 
 );
 
-create table cliente_3(
+create table dieccion_cliente(
 	id_cliente int not null,
     calle varchar(50) not null,
-	cp int not null,
+    num int(3) not null,
+	cp int(5) not null,
     primary key (id_cliente, calle),
     foreign key (id_cliente) references cliente (id_cliente) 
 );
 
 
 create table producto(
-	cod_producto int primary key not null,
-    nombre mediumtext not null,
-    talla varchar(7) not null,
-    ap2 mediumtext not null,
-	color mediumtext not null,
-    precio int not null,
-    descripcion mediumtext not null
+	cod_producto int primary key auto_increment,
+    nombre varchar(15) not null,
+    talla varchar(3) not null,
+	color varchar(15) not null,
+    precio float not null,
+    descripcion varchar(250)
 );
 
 create table proveedor(
-	cif int primary key not null,
-    nombre mediumtext not null,
-	calle mediumtext not null,
-    cp int not null,
-    mail mediumtext not null
+	cif char(9) primary key,
+    nombre varchar(25) not null,
+    mail varchar(30) not null
 );
 
-create table proveedor_2(
-	cif int not null,
-	telefono varchar(15) not null,
+create table telefono_proveedor(
+	cif char(9) not null,
+	telefono char(12) not null,
     primary key (cif, telefono),
     foreign key (cif) references proveedor (cif)
 );
 
-create table proveedor_3(
-	cif int not null,
+create table direccion_proveedor(
+	cif char(9) not null,
 	calle varchar(50) not null,
-    cp int not null,
+    num int(3) not null,
+    cp int(5) not null,
     primary key (cif, calle),
     foreign key (cif) references proveedor (cif)
 );
 
 
 create table trabajador(
-	id_trabajador int primary key not null,
+	id_trabajador int primary key auto_increment,
     ss int not null,
-    nombre mediumtext not null,
-    ap1 mediumtext not null,
-    ap2 mediumtext not null,
-	calle mediumtext not null,
-    num varchar(10) not null,
-    cp int not null
+    nombre varchar(25) not null,
+    ap1 varchar(25) not null,
+    ap2 varchar(25) not null
 );
 
-create table trabajador_2(
+create table telefono_trabajador(
 	id_trabajador int not null,
-    telefono varchar(15) not null,
+    telefono char(12) not null,
     primary key (id_trabajador, telefono),
     foreign key (id_trabajador) references trabajador (id_trabajador)
 );
 
-create table trabajador_3(
+create table direccion_trabajador(
 	id_trabajador int not null,
     calle varchar(50) not null,
-    cp int not null,
+    num int(3) not null,
+    cp int(5) not null,
     primary key (id_trabajador, calle),
     foreign key (id_trabajador) references trabajador (id_trabajador)
 );
@@ -131,7 +128,7 @@ create table vende(
 create table compra(
 	cod_producto int not null,
 	id_comercial int not null,
-	cif int not null,
+	cif char(9) not null,
     primary key (cod_producto, id_comercial),
     foreign key (cod_producto) references producto (cod_producto),
     foreign key (id_comercial) references comercial (id_comercial),
