@@ -14,7 +14,9 @@ public class Main {
     GeneradorId.getinstancia();
 
         GeneradorId generador1 = GeneradorId.getinstancia();
-        System.out.println("ID generado: " + generador1.getinstancia());
+        GeneradorId generador2 = GeneradorId.getinstancia();
+        System.out.println("ID generado: " + generador1.getUuid());
+        System.out.println("ID generado: " + generador2.getUuid());
 
     }
 }
