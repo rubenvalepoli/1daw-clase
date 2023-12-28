@@ -1,0 +1,13 @@
+$ g lga
+$ git reset --hard b4b65d7 (a primer canvi)
+$ git lga
+$ git reset --hard 03f4c50 (a segon canvi)
+$ git lga
+$ git reset --hard 3b6cf46 (a tercer canvi)
+$ git lga
+$ g checkout tercer
+$ g reset --hard 3b6cf46 (a tercer canvi)
+$ g lga
+$ g checkout segon
+$ g reset --hard 03f4c50 (a segon canvi)
+$ g lga
