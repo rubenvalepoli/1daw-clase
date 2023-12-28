@@ -1,0 +1,23 @@
+a:link {
+    color: goldenrod;
+}
+
+a:visited{
+    color: yellowgreen;
+}
+
+a:hover{
+    color: blueviolet;
+    text-decoration: overline;
+}
+
+
+p.miclase {
+    color: #0000ff;
+    background-color: aqua;
+}
+
+
+h1#menu.miclase{
+background-color: #56ff26;
+}
