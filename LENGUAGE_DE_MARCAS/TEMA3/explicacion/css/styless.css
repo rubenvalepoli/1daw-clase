@@ -1,0 +1,26 @@
+*{
+    background-color: beige;
+    
+    text-align: center; 
+}
+
+#tienda{
+    
+    color: brown;
+}
+
+.sexo {
+    
+    color: green;
+    
+}
+
+h1#marca{
+   color: dimgray;
+}
+
+#tienda, #marca{
+    
+    background-color: greenyellow;
+}
+
