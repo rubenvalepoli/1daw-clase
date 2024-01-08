@@ -1,0 +1,44 @@
+@font-face{
+    
+    
+}
+
+p#small {
+/*    font-size: xx-small;*/
+}
+
+p#em {
+    font-size: 2em;
+}
+
+p#italica {
+    font-style: oblique;
+}
+
+p#oblicuo {
+    font-style: oblique;
+}
+
+/*
+        body {
+            color: green;
+        }
+        .heredado a {
+            color: inherit;
+        }
+        .inicial a {
+            color: initial;
+        }
+*/
+
+#grosor {
+    font-weight: lighter;
+}
+
+#grosor2 {
+    font-weight: 600;
+}
+
+#versatilas {
+    font-variant: small-caps;
+}
