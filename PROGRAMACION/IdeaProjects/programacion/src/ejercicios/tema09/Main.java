@@ -1,11 +1,12 @@
 package ejercicios.tema09;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
     private ArrayList<Product> listproduct = new ArrayList<>();
-
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
 
@@ -22,6 +23,15 @@ public class Main {
         System.out.println(clothes2);
         System.out.println(books1);
         System.out.println(books2);
+        System.out.println(clothes2.getPrice());
+
+
+        System.out.println("1- Mostrar todo");
+        System.out.println("2- Mostrar ropa");
+        System.out.println("3- Mostrar libros");
+        int mostrar = scanner.nextInt();
+
+        /*Falta acabar el ejercicio 6 haciendo un if o un case para que devuelva las cosas*/
 
 
     }

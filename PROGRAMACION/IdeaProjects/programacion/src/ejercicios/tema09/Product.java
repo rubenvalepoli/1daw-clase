@@ -1,5 +1,7 @@
 package ejercicios.tema09;
 
+import static ejercicios.tema09.Books.discount;
+
 public class Product {
 
     private int id, price;
@@ -20,12 +22,14 @@ public class Product {
     }
 
     public int getPrice() {
+        price = (int) (price - discount);
         return price;
     }
 
     public void setPrice(int price) {
         this.price = price;
     }
+
 
     @Override
     public String toString() {

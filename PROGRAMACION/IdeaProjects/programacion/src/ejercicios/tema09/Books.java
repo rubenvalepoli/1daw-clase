@@ -2,6 +2,7 @@ package ejercicios.tema09;
 
 public class Books extends Product{
 
+    static final double discount = 0.8;
     private String author, title;
 
     public Books(int id, int price, String author, String title) {
@@ -9,6 +10,8 @@ public class Books extends Product{
         this.author = author;
         this.title = title;
     }
+
+
 
 
     public String getAuthor() {
