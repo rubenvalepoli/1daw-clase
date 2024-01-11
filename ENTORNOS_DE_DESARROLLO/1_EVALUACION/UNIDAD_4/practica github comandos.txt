@@ -1,0 +1,91 @@
+1- En la branca principal main, crea el commit P4: Esquelet on s'afegeix els següent fitxer al package ud4.practices.
+	
+	$ cd ./src/main/java/ud4/practices
+
+	(Copiar lo del documento)
+
+	$ g add .
+	$ g cm -m "P4: Esquelet"
+
+2- Crea la branca p4/entrada.
+
+	$ g branch p4/entrada
+
+3-Crea la branca p4/puntuacio.
+
+	$ g branch p4/puntuacio
+
+4-Des de la branca p4/entrada, fes el commit P4: Definició mètode puntuacio() amb els següents canvis:
+
+	$ g checkout p4/entrada
+	$ notepad BandurriaHero.java "Ponemos los cambios"
+	$ g add .
+	$ g cm -m "P4: Definició mètode puntuacio()"
+
+
+
+5- Ens hem equivocat! Aquests canvis no es corresponen a aquesta branca. Des de la branca p4/entrada, revertix el commit anterior. Deixa el missatge per defecte.
+
+$ g revert b4d77dd "El commit P4: Definició mètode puntuacio()"
+
+
+
+6- Des de la branca p4/entrada, fes el commit P4: Processa entrada amb els següents canvis:
+
+	$ nano BandurriaHero.java "HAces los cambios"
+	$ g ad .
+	$ g cm -m "P4: Processa entrada"
+
+7- Des de la branca p4/puntuacio, obté els canvis realitzats en el commit P4: Definició mètode puntuacio() creat anteriorment.
+
+	$ g checkout p4/puntuacio
+	$ g cherry-pick f39717f
+
+
+8- Des de la branca p4/puntuacio, completa el mètode en el commit P4: Càlcul puntuació:
+
+	$ nano BandurriaHero.java
+	$ g ad .
+	$ g cm -m "P4: Càlcul puntuació"
+
+9-Incorpora la branca p4/entrada a main (sense fer rebase).
+
+	$ g merge p4/entrada
+
+10-Incorpora la branca p4/puntuacio a main (sense fer rebase).
+
+	$ g merge p4/puntuacio
+
+11-Des de la branca main, completa el programa en el commit P4: Processa els casos d'entrada:
+
+	$ nano BandurriaHero.java "poner el texto"
+	$ g ad .
+	$ g cm -m "P4: Processa els casos d'entrada"
+
+
+12 -Publica les branques main, p4/entrada i p4/puntuacio
+
+	git pull "y lo que sea"
+
+13 - Crea les següents etiquetes i publica-les:
+
+·P4: en l'últim commit realitzat.
+·P4-Revert: en el commit que revertim els canvis.
+·P4-CherryPick: en el commit on s'ha realitzat el cherry-pick.
+
+	$git tag -a P4 -m "Descripción de la etiqueta P4"
+	$git push origin P4
+
+	$git tag -a P4-Revert 5498ca1 -m "Descripción de la etiqueta P4-Revert"
+	$git push origin P4-Revert
+
+	$git tag -a P4-CherryPick 77e4d6a -m "Descripción de la etiqueta P4-CherryPick"
+	$git push origin P4-CherryPick
+
+
+
+
+
+
+
+
