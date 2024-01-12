@@ -1,42 +1,53 @@
 package ejercicios.tema09;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    private ArrayList<Product> listproduct = new ArrayList<>();
+    private static List<Product> productList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
 
-
-
-        Clothes clothes1 = new Clothes(1234,20,"camiseta","xxl","red");
-        Clothes clothes2 = new Clothes(4567,50,"pantalon","xs","negro");
-        Books books1 = new Books(7891,35,"Pepe","El amor");
-        Books books2 = new Books(1122,10,"Antonio","Patomima");
-
-
-
-        System.out.println(clothes1);
-        System.out.println(clothes2);
-        System.out.println(books1);
-        System.out.println(books2);
-        System.out.println(clothes2.getPrice());
+        initialize();
+        //showProducts(1);
 
 
         System.out.println("1- Mostrar todo");
         System.out.println("2- Mostrar ropa");
         System.out.println("3- Mostrar libros");
-        int mostrar = scanner.nextInt();
-
-        /*Falta acabar el ejercicio 6 haciendo un if o un case para que devuelva las cosas*/
-
+        System.out.println("Elije una opcion:");
+        int option = scanner.nextInt();
+        showProducts(option);
 
     }
 
-    public void addProduct (Product product) {listproduct.add(product);}
+    private static void initialize(){
+        Clothes clothes1 = new Clothes(1234,20,"camiseta","xxl","red");
+        Clothes clothes2 = new Clothes(4567,50,"pantalon","xs","negro");
+        Books books1 = new Books(7891,35,"Pepe","El amor");
+        Books books2 = new Books(1122,10,"Antonio","Patomima");
+        productList.add(clothes1);
+        productList.add(clothes2);
+        productList.add(books1);
+        productList.add(books2);
+    }
+
+    public static void showProducts(int option) {
+        for (Product product: productList) {
+            if(option == 1) {
+                System.out.println(product);
+            }
+            else if(option == 2 && product.getClass().equals(Clothes.class)) {
+                System.out.println(product);
+            } else if(option == 3 && product.getClass().equals(Books.class)) {
+                System.out.println(product);
+            }
+        }
+    }
+
 
 
 }
