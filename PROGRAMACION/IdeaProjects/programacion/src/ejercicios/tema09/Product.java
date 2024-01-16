@@ -17,18 +17,12 @@ public class Product {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getPrice() {
         price = (int) (price - discount);
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
 
     @Override
