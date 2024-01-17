@@ -23,6 +23,23 @@ public class Main {
         int option = scanner.nextInt();
         showProducts(option);
 
+
+
+
+        // ENUMS
+
+        HD hd1 =new HD(HDType.SDD_25,20);
+
+        System.out.println(hd1);
+
+        CPU cpu1 = new CPU(CPUType.CORE_I7_12700KF);
+
+        System.out.println(cpu1);
+
+
+
+
+
     }
 
     private static void initialize(){
@@ -31,6 +48,7 @@ public class Main {
         Books books1 = new Books(7891,35,"Pepe","El amor");
         Books books2 = new Books(1122,10,"Antonio","Patomima");
         Computer computer1 = new Computer(2233,500,"memoria 100","4gb","100g");
+
         productList.add(clothes1);
         productList.add(clothes2);
         productList.add(books1);

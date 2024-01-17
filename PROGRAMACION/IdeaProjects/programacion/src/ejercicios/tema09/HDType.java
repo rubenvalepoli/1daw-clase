@@ -1,4 +1,11 @@
 package ejercicios.tema09;
 
-public class HDType {
+public enum HDType {
+
+
+    HDD_NOR,
+    HDD_NAND,
+    SDD_25,
+    SDD_M2;
+
 }

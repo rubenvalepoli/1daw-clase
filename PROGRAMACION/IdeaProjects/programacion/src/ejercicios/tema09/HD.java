@@ -2,24 +2,15 @@ package ejercicios.tema09;
 
 public class HD {
 
-    private String type;
+    private HDType type;
     private int capacity;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
+    public HD(HDType type, int capacity) {
         this.type = type;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+
 
     @Override
     public String toString() {
@@ -28,4 +19,6 @@ public class HD {
                 ", capacity=" + capacity +
                 '}';
     }
+
+
 }
