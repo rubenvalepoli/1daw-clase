@@ -7,8 +7,8 @@ body{
 }
 
 header{
-    font-size: 1em;
-    padding: 0.5em 0;
+    font-size: 1.2em;
+    padding: 1em 0;
     background-color: #ccc;
 }
 
@@ -18,7 +18,7 @@ h1{
     font-size: 1em;
     letter-spacing: 0.5em;
     color: #4242a0;
-    text-shadow: .2em .2em .2em #333;
+    text-shadow: .1em .1em .2em #333;
 }
 
 section h2{
@@ -38,6 +38,20 @@ section li{
     font-family: verdana, sans-serif;
     font-size: .5em;
 }
+
+.datos_cv div{
+    display: inline-block;
+}
+
+.datos_cv{
+    /*display: inline-block;*/
+    vertical-align: middle;
+}
+
+.imagen_datos{
+    margin: auto 5vw;
+}
+
 
 .imagen_datos img{
     width: 10em;
