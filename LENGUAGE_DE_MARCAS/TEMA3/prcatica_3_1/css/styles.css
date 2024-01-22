@@ -4,6 +4,16 @@ body{
     padding: 0;
     margin: 0;
     font-size: 1rem;
+    background-image: url(../img/background-city.jpg);
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.container{
+    
+    background-color: rgba(255,255,255,0.8);
 }
 
 header{
@@ -39,20 +49,43 @@ section li{
     font-size: .5em;
 }
 
-.datos_cv div{
-    display: inline-block;
-}
 
-.datos_cv{
-    /*display: inline-block;*/
+
+.lista_datos, .imagen_datos{
+    display: inline-block;
     vertical-align: middle;
 }
 
 .imagen_datos{
-    margin: auto 5vw;
+     margin: auto 5vw;
 }
 
 
 .imagen_datos img{
     width: 10em;
 }
+
+.lista_datos li{
+    
+    list-style: circle;
+}
+
+.formacion li{
+    list-style-image: url(../img/figma.svg);
+    
+}
+
+.experiencia li{
+    list-style: square;
+}
+
+
+
+
+
+
+
+
+
+
+
