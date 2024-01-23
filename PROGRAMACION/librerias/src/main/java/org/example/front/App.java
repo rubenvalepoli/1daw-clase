@@ -1,5 +1,8 @@
 package org.example.front;
 
+import org.example.back.controller.CustemerController;
+import org.example.back.domain.Customer;
+
 import java.util.Scanner;
 
 public class App {
@@ -16,20 +19,23 @@ public class App {
             do {
                 menu.show();
                 option = scanner.nextInt();
-                request.request();
+                System.out.println(request(option));
             } while (option != 0);
     }
 
 
 
-    public void request(){
+    public static String request(int option){
+
 
 
         System.out.println("Haciendo peticion al servidor...");
-        org.example.back.App.response(option);
 
-        //FALTA QUE VALLA EL LISTADO DE CLIENTES EJERCICIO 4 TEMA 11
+        return org.example.back.App.response(option);
 
+
+
+        // FALTA EL EJERCICIO 6 "QUE ME DA PATEO"
 
     }
 

@@ -4,20 +4,19 @@ import org.example.back.controller.CustemerController;
 
 public class App {
 
-    public static void response(int option){
+    public static String response(int option){
 
         CustemerController controller = new CustemerController ();
 
+
         if (option == 1){
 
-            controller.findAll();
+            return controller.findAll().toString();
 
         }else{
-            System.out.println("404 .- Recurso no encontrado");
-        };
+            return "404 .- Recurso no encontrado";
+        }
 
-
-        System.out.println("Respuesta del servidor...");
     }
 
 }
