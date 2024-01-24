@@ -1,4 +1,18 @@
 package org.example.back.business.service.impl;
 
-public class BoksServiceImpl {
+import org.example.back.business.entity.Book;
+import org.example.back.business.service.BooksService;
+import org.example.back.persistence.BookRepository;
+import org.example.back.persistence.impl.StaticBookRepositoryImpl;
+
+import java.util.List;
+
+public class BoksServiceImpl implements BooksService {
+
+    private BookRepository repository = new StaticBookRepositoryImpl();
+
+    @Override
+    public List<Book> getAll() {
+        return this.repository.all();
+    }
 }
