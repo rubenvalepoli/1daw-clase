@@ -14,26 +14,42 @@ body{
 .container{
     
     background-color: rgba(255,255,255,0.8);
+    height: 100vh;
+    padding: .5em 2em; 
 }
 
 header{
-    font-size: 1.2em;
-    padding: 1em 0;
+    font-size: 1em;
+    padding: .5em 0;
     background-color: #ccc;
 }
+
+footer{
+    background-color: #ccc;
+    text-align: center;
+    font-family: vedana, sans-serif;
+    font-size: .8em;
+    padding: 2em;
+    font-weight: 700;
+}
+
 
 h1{
     font-family: 'Cambria', Times, serif;
     text-align: center;
-    font-size: 1em;
+    font-size: 2em;
     letter-spacing: 0.5em;
     color: #4242a0;
     text-shadow: .1em .1em .2em #333;
 }
 
+section{
+    margin: 3em 0;
+}
+
 section h2{
     font-family: 'Dela Gothic One', Arial , sans-serif;
-    font-size: .6em;
+    font-size: 1.2em;
     letter-spacing: .5em;
     color: #6c001d;
     border-bottom: .2em solid #6c001d;
@@ -46,7 +62,7 @@ h1, section h2{
 
 section li{
     font-family: verdana, sans-serif;
-    font-size: .5em;
+    
 }
 
 
@@ -57,12 +73,14 @@ section li{
 }
 
 .imagen_datos{
-     margin: auto 5vw;
+     margin-left: 15vw;
 }
+    
 
 
 .imagen_datos img{
-    width: 10em;
+    width: 15em;
+    box-shadow: .3em .3em .3em #333;
 }
 
 .lista_datos li{
