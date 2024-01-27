@@ -12,4 +12,10 @@ public class CustomerService {
 
     }
 
+
+    public Customer findById(int id){
+      return customerDao.findById(id);
+
+    }
+
 }

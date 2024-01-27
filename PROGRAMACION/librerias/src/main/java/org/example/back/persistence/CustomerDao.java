@@ -20,4 +20,14 @@ public class CustomerDao {
     }
 
 
+    public Customer findById(int id){
+        for (Customer customer: custumerList){
+            if(customer.getId()== id) {
+                return customer;
+            }
+        }
+        return null;
+    }
+
+
 }
