@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 
-body{
+body {
     padding: 0;
     margin: 0;
     font-size: 1rem;
@@ -11,20 +11,20 @@ body{
 }
 
 
-.container{
-    
-    background-color: rgba(255,255,255,0.8);
+.container {
+
+    background-color: rgba(255, 255, 255, 0.8);
     height: 100vh;
-    padding: .5em 2em; 
+    padding: .5em 2em;
 }
 
-header{
+header {
     font-size: 1em;
     padding: .5em 0;
     background-color: #ccc;
 }
 
-footer{
+footer {
     background-color: #ccc;
     text-align: center;
     font-family: vedana, sans-serif;
@@ -34,7 +34,7 @@ footer{
 }
 
 
-h1{
+h1 {
     font-family: 'Cambria', Times, serif;
     text-align: center;
     font-size: 2em;
@@ -43,67 +43,58 @@ h1{
     text-shadow: .1em .1em .2em #333;
 }
 
-section{
+section {
     margin: 3em 0;
 }
 
-section h2{
-    font-family: 'Dela Gothic One', Arial , sans-serif;
+section h2 {
+    font-family: 'Dela Gothic One', Arial, sans-serif;
     font-size: 1.2em;
     letter-spacing: .5em;
     color: #6c001d;
     border-bottom: .2em solid #6c001d;
 }
 
-h1, section h2{
+h1,
+section h2 {
     text-transform: uppercase;
 }
 
 
-section li{
+section li {
     font-family: verdana, sans-serif;
-    
+
 }
 
 
 
-.lista_datos, .imagen_datos{
+.lista_datos,
+.imagen_datos {
     display: inline-block;
     vertical-align: middle;
 }
 
-.imagen_datos{
-     margin-left: 15vw;
+.imagen_datos {
+    margin-left: 15vw;
 }
-    
 
 
-.imagen_datos img{
+
+.imagen_datos img {
     width: 15em;
     box-shadow: .3em .3em .3em #333;
 }
 
-.lista_datos li{
-    
+.lista_datos li {
+
     list-style: circle;
 }
 
-.formacion li{
+.formacion li {
     list-style-image: url(../img/figma.svg);
-    
+
 }
 
-.experiencia li{
+.experiencia li {
     list-style: square;
 }
-
-
-
-
-
-
-
-
-
-
-
