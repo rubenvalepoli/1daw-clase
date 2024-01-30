@@ -9,19 +9,13 @@ import java.util.List;
 
 public class EnumBookRepositoryImpl implements BookRepository {
 
-    private static List<Book> bookList = new ArrayList<>();
+    private static List<Book> bookList = List.of(
+            new Book(BookEnum.libro1.getId(), BookEnum.libro1.getTitle(), BookEnum.libro1.getAuthor()),
+            new Book(BookEnum.libro2.getId(), BookEnum.libro2.getTitle(), BookEnum.libro2.getAuthor()),
+            new Book(BookEnum.libro3.getId(), BookEnum.libro3.getTitle(), BookEnum.libro3.getAuthor())
+    );
 
-
-    BookEnum bookEnum = new BookEnum();
-    BookEnum book = new BookEnum(BookEnum.libro2);
-
-//            EJERCICIO7 ENUM CREADO FALTA METERLO EN UNA LISTA Y MOSTRARLO DESDE LA OTRA CLASE
-
-
-
-
-
-    public List<Book> all(){
-        return null;
+    public List<Book> all() {
+        return bookList;
     }
 }
