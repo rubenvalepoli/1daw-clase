@@ -10,7 +10,7 @@ public class BookController {
 
     private BooksService service = new BoksServiceImpl();
 
-    public List<Book> getAll(){
+    public List<Book> getAll() {
         return this.service.getAll();
     }
 

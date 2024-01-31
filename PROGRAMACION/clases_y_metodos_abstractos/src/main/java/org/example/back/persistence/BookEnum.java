@@ -2,9 +2,9 @@ package org.example.back.persistence;
 
 public enum BookEnum {
 
-    libro1(123,"El Principito","Antonie"),
+    libro1(123, "El Principito", "Antonie"),
     libro2(456, "Don Quijote", "Miguel de Cervantes"),
-    libro3(789,"El Proceso","Franz");
+    libro3(789, "El Proceso", "Franz");
 
     private int id;
     private String title;
@@ -17,4 +17,15 @@ public enum BookEnum {
     }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
 }
