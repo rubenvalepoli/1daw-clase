@@ -13,8 +13,14 @@ public class MainController {
     }
 
     @GetMapping("/about")
-    public void about(){
+    public String about(){
         System.out.println("Metodo about de MainController ejecutandose");
+        return "about";
     }
+    
+   /* @GetMapping("/products/{id}")
+    public void findByID(){
+        System.out.println("Metodo find by id");
+    }*/
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.math.BigDecimal;
 import java.util.List;
 
-@RequestMapping("/productos")
+@RequestMapping("/products")
 @Controller
 public class ProductController {
 
@@ -21,11 +21,32 @@ public class ProductController {
       new Product(3,"Producto C","Marca B", new BigDecimal(68.99))
     );
 
-    @GetMapping
+    @GetMapping()
     public String getAll(Model model){
         model.addAttribute("products",this.productList);
         return "products";
     }
+
+   @GetMapping("/{id}")
+    public String findById(@PathVariable int id, Model model){
+
+        model.addAttribute("product", this.productList);
+        return "findById";
+        }
+
+    /*@GetMapping("/{id}")
+    public String findById(int id){
+
+        for (Product product: productList){
+            if (product.getId() == id){
+                return "findById";
+            }
+        }
+        return null;
+    }*/
+
+
+
 }
 
 
