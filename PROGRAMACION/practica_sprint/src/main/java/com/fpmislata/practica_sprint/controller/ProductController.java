@@ -31,8 +31,24 @@ public class ProductController {
     public String findById(@PathVariable int id, Model model){
 
         model.addAttribute("product", this.productList);
-        return "findById";
+        return "detalles";
         }
+
+
+/*    @GetMapping("/{id}")
+    public String findById(@PathVariable int id, Model model){
+
+        for (Product product: productList){
+            if (product.getId() == id){
+                model.addAttribute("product", this.productList);
+                return "detalles";
+            }
+        }
+
+        return null;
+    }*/
+
+
 
     /*@GetMapping("/{id}")
     public String findById(int id){
