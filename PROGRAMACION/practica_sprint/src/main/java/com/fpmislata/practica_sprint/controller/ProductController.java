@@ -30,38 +30,19 @@ public class ProductController {
    @GetMapping("/{id}")
     public String findById(@PathVariable int id, Model model){
 
-        model.addAttribute("product", this.productList);
+        model.addAttribute("product", this.find(id));
         return "detalles";
         }
 
-
-/*    @GetMapping("/{id}")
-    public String findById(@PathVariable int id, Model model){
+    private Product find(int id){
 
         for (Product product: productList){
             if (product.getId() == id){
-                model.addAttribute("product", this.productList);
-                return "detalles";
-            }
-        }
-
-        return null;
-    }*/
-
-
-
-    /*@GetMapping("/{id}")
-    public String findById(int id){
-
-        for (Product product: productList){
-            if (product.getId() == id){
-                return "findById";
+                return product;
             }
         }
         return null;
-    }*/
-
-
+    }
 
 }
 
