@@ -7,4 +7,6 @@ import java.util.List;
 public interface BooksService {
 
     public List<Book> getAll();
+    public Book findById(int id);
+    public Book create(String title, String author);
 }

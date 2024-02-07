@@ -17,6 +17,15 @@ public class BooksServiceImpl implements BooksService {
         return this.repository.all();
     }
 
+    @Override
+    public Book findById(int id) {
+        return this.repository.findById(id);
+    }
+
+    @Override
+    public Book create(String title, String author) {
+        return this.repository.create(title, author);
+    }
 
 
 }
