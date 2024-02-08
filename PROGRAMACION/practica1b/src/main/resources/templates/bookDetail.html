@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title th:text="|Libro: ${book.title}|">Libro</title>
 </head>
 <body>
     <p th:text="|Título: ${book.title}|"></p>
     <p th:text="|Autor: ${book.author}|">Author</p>
+    <a href="/libros">Volver a la lista de libros</a>
 </body>
 </html>
+

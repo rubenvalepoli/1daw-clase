@@ -1,5 +1,6 @@
 body {
-    background: #bfcee8;
+    background: #7c7575;
+    color: azure;
 }
 
 h1 {
@@ -8,5 +9,16 @@ h1 {
 
 a {
     font-size: 15px;
+
+}
+
+.titlecreate {
+    background-color: darkgray;
+}
+
+.imagen1{
+    position: relative;
+    height: 70%;
+    width: 80%;
 
 }

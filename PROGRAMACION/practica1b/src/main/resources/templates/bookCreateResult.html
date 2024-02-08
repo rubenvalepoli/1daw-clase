@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Libro creado</title>
 </head>
 <body>
@@ -9,6 +10,7 @@
         Libro creado:
     </p>
     <p th:text="|Título: ${book.title}|"></p>
-    <p th:text="|Autor: ${book.author}|">Author</p>
+    <p th:text="|Autor: ${book.author}|">Author</p><br>
+    <a href="/libros">Volver a la lista de libros</a>
 </body>
 </html>

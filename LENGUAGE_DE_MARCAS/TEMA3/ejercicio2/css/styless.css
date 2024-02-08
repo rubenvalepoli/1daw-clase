@@ -1,3 +1,6 @@
+
+
+
 body * {
     margin: 0;
     padding: 0;
@@ -12,6 +15,7 @@ header,footer {
 
 main{
     display: inline-block;
+    background-color: gray;
 }
 
 
@@ -23,37 +27,58 @@ section,aside {
 
 section * {
     color: #000;
+    background: white;
 }
 
 aside {
     background-color: #e0bf0c;
+    vertical-align: top;
 }
-
-
 
 
 @media screen and (max-width: 768px) {
+    /*MOVIL*/
 
-    /*EStilos para las pantallas de hasta 768px*/
-    .article2 {
+    .article2{
         display: none;
     }
-
-
-}
-
-@media screen and (max-width: 1024px) {
-    /*EStilos para las pantallas de hasta 1024px*/
-
-
-
-
+    
+    section, aside{
+        display: block;
+        width: 100vh;
+    }
+    
 }
 
 
-@media screen and (min-width: 1024px) {
+
+@media screen and (min-width:768px) and (max-width: 1024px){
+/*TABLET*/
+    header, fooder{
+        text-align: center;
+    }    
+    
+    section,aside{
+        display: inline-block;
+    }
+    section{
+        width: 65vw;
+    }
+    aside{
+        width: 32vw;
+    }
+    
+}
+
+
+@media screen and (min-width:1024px){
     /*EStilos para las pantallas desde 1024px*/
-
-
+    h2,h2{
+        font-size: 1.5rem;
+    }
+    
+   
 
 }
+
+
