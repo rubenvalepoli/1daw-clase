@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>Crear libro</title>
 </head>
 <body>
@@ -18,8 +18,7 @@
             <input type="text" id="author" name="author"><br><br>
 
             <input type="submit" value="Crear"><br><br>
-            <a href="/libros">Volver a la lista de libros</a>
-        </form>
+s        </form>
     </section>
 </body>
 </html>
