@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+
+header p {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 1.5em;
+    font-variant: small-caps;
+    color: #ea3030;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h1{
+    text-shadow:5px 5px 3px red;
+    text-transform: uppercase;
+
+}
+
+.uno {
+    text-indent: 400px;
+    line-height: 20px; 
+    Word-spacing: 15px; 
+}
+
+.lista p {
+    display: inline-block;
+}
