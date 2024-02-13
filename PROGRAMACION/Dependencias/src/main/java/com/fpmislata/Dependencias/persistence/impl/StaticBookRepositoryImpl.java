@@ -1,5 +1,6 @@
 package com.fpmislata.Dependencias.persistence.impl;
 
+import com.fpmislata.Dependencias.domine.entity.Book;
 import com.fpmislata.Dependencias.persistence.BookRepository;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 public class StaticBookRepositoryImpl implements BookRepository {
 
     List<Book> bookList = new ArrayList<>();
-    public StaticBookRepositoyImpl() {
+    public StaticBookRepositoryImpl() {
         bookList.add(new Book(1, "El nombre de la rosa", "Umberto Eco"));
         bookList.add(new Book(2, "La insoportable levedad del ser", "Milan Kundera"));
         bookList.add(new Book(3, "1Q84", "Haruki Murakami"));
