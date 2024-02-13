@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    background-image: url(../img/background-city.jpg);
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100vh;
+    padding: .5em 2em;
+}
+
+header {
+    padding: 8px;
+    background-color: #b8c4d0;
+}
+
+h1 {
+    word-spacing: 15px;
+    letter-spacing: 5px;
+    top: 0;
+    color: #3b5e8e;
+    font-family: 'Cambria', Times, serif;
+    text-align: center;
+    text-shadow:5px 5px 3px gray; 
+    
+}
+
+
+h2 {
+    font-family: "Dela Gothic One", sans-serif;
+    color: #721b25;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+
+
+img {
+     width: 15em;
+    box-shadow: .3em .3em .3em #333;
+    display: inline-block;
+   
+
+}
+
+.imagen_datos {
+    
+    margin-left: 500px;      
+    align-content: center;
+    vertical-align: middle;
+}
