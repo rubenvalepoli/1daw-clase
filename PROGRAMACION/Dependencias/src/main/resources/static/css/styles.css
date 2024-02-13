@@ -1,0 +1,28 @@
+body {
+    background: #7c7575;
+    color: azure;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    font-size: 15px;
+
+}
+
+.titlecreate {
+    background-color: darkgray;
+}
+
+.imagen1{
+    position: relative;
+    height: 70%;
+    width: 80%;
+
+}
+.titulo {
+    display: inline-block;
+    text-align:center;
+}
