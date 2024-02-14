@@ -22,7 +22,7 @@ public class BookController {
         private BookService service;
 
     public BookController() {
-        this.service = BookIoCContainer.getBookRepository();
+        //this.service = BookIoCContainer.getBookRepository();
     }
 
 
