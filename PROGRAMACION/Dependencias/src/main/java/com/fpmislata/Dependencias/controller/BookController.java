@@ -1,8 +1,12 @@
 package com.fpmislata.Dependencias.controller;
 
+import com.fpmislata.Dependencias.common.BookIoCContainer;
 import com.fpmislata.Dependencias.domine.entity.Book;
+import com.fpmislata.Dependencias.domine.service.BookService;
 import com.fpmislata.Dependencias.domine.service.impl.BooksServiceImpl;
 import com.fpmislata.Dependencias.dto.BookDto;
+import com.fpmislata.Dependencias.persistence.BookRepository;
+import com.fpmislata.Dependencias.persistence.impl.StaticBookRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class BookController {
 
+        private BookService service;
+
+    public BookController() {
+        this.service = BookIoCContainer.getBookRepository();
+    }
 
 
-
-
-        private BooksServiceImpl service = new BooksServiceImpl();
-
-
-        @GetMapping
+    @GetMapping
         public String getAll(Model model) {
             model.addAttribute("books", this.service.getAll());
             return "bookList";

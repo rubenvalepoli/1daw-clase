@@ -9,7 +9,11 @@ import java.util.List;
 
 public class BooksServiceImpl implements BookService {
 
-    private BookRepository repository = new StaticBookRepositoryImpl();
+    private BookRepository repository;
+
+    public BooksServiceImpl(BookRepository repository) {
+        this.repository = repository;
+    }
 
 
     @Override
