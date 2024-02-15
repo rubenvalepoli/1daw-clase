@@ -1,0 +1,17 @@
+@keyframes aparece {
+    from{
+        background-color: rgba(50,50,255,0);
+        width: 0em;
+        height: 0em;
+    }
+    to{
+        background-color: rgba(255,50,50,1);
+        width: 20em;
+        height: 20em;
+    }
+}
+div.cuadrado {
+animation-name: aparece;
+animation-duration: 3s;
+}
+

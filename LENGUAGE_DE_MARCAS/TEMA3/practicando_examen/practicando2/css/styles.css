@@ -18,44 +18,78 @@ body {
     padding: .5em 2em;
 }
 
-header {
-    padding: 8px;
-    background-color: #b8c4d0;
-}
+
 
 h1 {
+    text-transform: uppercase;
     word-spacing: 15px;
     letter-spacing: 5px;
     top: 0;
     color: #3b5e8e;
     font-family: 'Cambria', Times, serif;
     text-align: center;
-    text-shadow:5px 5px 3px gray; 
-    
+    text-shadow: 5px 5px 3px gray;
+
 }
 
 
 h2 {
     font-family: "Dela Gothic One", sans-serif;
+    font-size: 1.2em;
     color: #721b25;
-    text-decoration: underline;
     text-transform: uppercase;
     letter-spacing: 10px;
+    border-bottom: .2em solid #6c001d;
 }
 
 
+ul{
+    font-size: 1.2em;
+    font-family: verdana, sans-serif;
+}
 
-img {
-     width: 15em;
+header,footer {
+    background-color: #a2a2a2;
+}
+
+header {
+    padding: 8px;
+}
+
+footer {
+    padding: .1vw;
+}
+
+.imagen_datos img {
+    width: 15em;
     box-shadow: .3em .3em .3em #333;
-    display: inline-block;
-   
-
 }
 
 .imagen_datos {
-    
-    margin-left: 500px;      
-    align-content: center;
+    margin-left: 15vw;
+}
+
+.imagen_datos,.lista_datos {
+    display: inline-block;
     vertical-align: middle;
 }
+
+.lista_datos li {
+    list-style: circle;
+}
+
+.lista_experiencia li {
+    list-style: square;
+    font-weight: bolder;
+}
+
+.lista_formacion li {
+    list-style-image: url(../img/figma.svg);
+
+}
+
+#pie_pagina {
+    text-align: center;
+}
+
+
