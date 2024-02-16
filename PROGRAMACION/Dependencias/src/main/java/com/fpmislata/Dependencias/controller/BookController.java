@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @RequestMapping("/libros")
 @Controller
 
@@ -22,8 +24,10 @@ public class BookController {
         private BookService service;
 
     public BookController() {
-        //this.service = BookIoCContainer.getBookRepository();
+        BookRepository bookRepository = new StaticBookRepositoryImpl();
+        this.service = new BooksServiceImpl(bookRepository);
     }
+
 
 
     @GetMapping
