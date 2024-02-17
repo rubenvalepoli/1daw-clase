@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
+*{
+    text-align: center;
+}
+body {
+
+    background-image: url(../img/fondo.jpg);
+    background-position: center;
+    background-size: contain;
+    height: 100vw;
+}
+
+header {
+    font-family: "Protest Riot", sans-serif;
+    background-color: #474747;
+    color: aliceblue;
+}
+
+
+img{
+    width: 200px;
+}
+
+ section{
+    display: inline-block;
+    
+}
+
+
+
+.precio{
+    font-weight: bolder;
+    
+}
+
+@media screen and (max-width: 768px){
+    
+    section{
+        display: block;
+    }
+    .article2, .article3{
+        display: none;
+    }
+}
