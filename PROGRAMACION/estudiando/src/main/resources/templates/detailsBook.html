@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="|Book: ${books.id}|">Details</title>
+</head>
+<body>
+    <p th:text="|Título: ${books.title}|"></p>
+    <a th:href="@{/books}">Volver a libros</a>
+</body>
+</html>

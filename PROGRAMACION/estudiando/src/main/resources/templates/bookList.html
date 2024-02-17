@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>booklist</title>
+</head>
+<body>
+  <h1>Lista de libros</h1>
+    <a th:href="@{/books/crear}">Crear nuevo libro</a>
+  <ul>
+    <li th:each="book : ${books}">
+      <a th:text="${books.title}" th:href="@{${'/books/' + books.id}}">.</a>
+    </li>
+  </ul>
+</body>
+</html>

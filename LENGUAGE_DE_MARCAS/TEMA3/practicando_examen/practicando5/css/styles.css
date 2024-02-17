@@ -1,0 +1,43 @@
+body{
+    background-color: #7c7878;
+    color: #ecf4fb;
+    text-align: center;
+}
+
+header, footer{
+    background-color: #fbe1c1;
+    height: 5vw;
+    color: gray;
+   text-transform: uppercase;
+
+}
+
+.section1, .section2{
+    margin-top: 20px;
+    display: inline-block;
+}
+
+
+@media screen and (max-width: 768px){
+    
+    section{
+        display: inline-block;
+    }
+    .article1, .article2{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 769px)and (max-width: 1024px){
+    
+     section{
+        display: inline-block;
+    }
+    .article3, .article4{
+        visibility: hidden;
+    }
+    
+}
+
+
+

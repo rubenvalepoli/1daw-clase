@@ -2,13 +2,17 @@ package com.fpmislata.estudiando.domain.entity;
 
 public class Book {
 
+
+
     private Integer id;
     private String title;
 
-    public Book(Integer id, String title) {
+
+    public Book(Integer id, String title, Author cervantes) {
         this.id = id;
         this.title = title;
     }
+
 
     public Integer getId() {
         return id;
