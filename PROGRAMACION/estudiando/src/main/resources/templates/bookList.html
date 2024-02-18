@@ -6,9 +6,8 @@
 </head>
 <body>
   <h1>Lista de libros</h1>
-    <a th:href="@{/books/crear}">Crear nuevo libro</a>
   <ul>
-    <li th:each="book : ${books}">
+    <li th:each="books : ${books}">
       <a th:text="${books.title}" th:href="@{${'/books/' + books.id}}">.</a>
     </li>
   </ul>
