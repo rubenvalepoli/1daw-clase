@@ -13,6 +13,9 @@ public class Book {
         this.title = title;
     }
 
+    public Book() {
+    }
+
 
     public Integer getId() {
         return id;

@@ -11,5 +11,7 @@
       <a th:text="${books.title}" th:href="@{${'/books/' + books.id}}">.</a>
     </li>
   </ul>
+  <a th:href="@{/books/author}">Ir al listado de autores</a> &nbsp;&nbsp;
+  <a th:href="@{/books/addbook}">Crear libro</a>
 </body>
 </html>

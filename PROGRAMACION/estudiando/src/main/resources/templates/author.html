@@ -6,12 +6,15 @@
 </head>
 <body>
 
-<h1>Lista de libros</h1>
+<h1>Lista de Autores</h1>
 <ul>
-    <li th:each="authors : ${authors}">
-        <a th:text="${authors.title}" th:href="@{${'/books/' + authors.author}}">.</a>
+    <li th:each="author : ${author}">
+        <a th:text="${author.author}" th:href="@{${'/author/' + author.author}}">.</a>
     </li>
 </ul>
+    <a th:href="@{/books}">Volver al listado de libros</a> &nbsp;&nbsp;
+<a th:href="@{/books/addbook}">Crear libro</a>
+
 
 </body>
 </html>

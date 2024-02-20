@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class BooksServiceImpl implements BooksService{
-      BookRepository repository;
+      private BookRepository repository;
 
     public BooksServiceImpl(BookRepository repository) {
         this.repository = repository;
@@ -35,5 +35,8 @@ public class BooksServiceImpl implements BooksService{
         repository.insert(book);
     }*/
 
-
+    @Override
+    public Book addBook(Book book) {
+        return this.repository.addBook(book);
+    }
 }

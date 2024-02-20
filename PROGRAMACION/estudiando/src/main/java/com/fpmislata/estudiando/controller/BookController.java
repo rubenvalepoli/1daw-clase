@@ -1,10 +1,13 @@
 package com.fpmislata.estudiando.controller;
 
+import com.fpmislata.estudiando.domain.entity.Author;
 import com.fpmislata.estudiando.domain.entity.Book;
 import com.fpmislata.estudiando.domain.service.AuthorService;
 import com.fpmislata.estudiando.domain.service.BooksService;
 import com.fpmislata.estudiando.domain.service.impl.AuthorServiceImpl;
 import com.fpmislata.estudiando.domain.service.impl.BooksServiceImpl;
+import com.fpmislata.estudiando.persistence.BookRepository;
+import com.fpmislata.estudiando.persistence.impl.BookRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,24 +17,25 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BookController {
 
-    BooksService service;
+    private BooksService service;
 
-    public BookController(BooksService service) {
-        this.service = service;
+    public BookController() {
+        BookRepository bookRepository = new BookRepositoryImpl();
+        this.service = new BooksServiceImpl(bookRepository);
     }
 
-    AuthorService author;
+ /*   AuthorService author;
 
     public BookController(AuthorService author) {
         this.author = author;
-    }
+    }*/
 
 
 
 
 @Autowired
     public BookController(AuthorServiceImpl authorService, BooksServiceImpl booksService) {
-        this.author = authorService;
+        //this.author = authorService;
         this.service = booksService;
     }
 
@@ -41,11 +45,11 @@ public class BookController {
         model.addAttribute("books",this.service.findall());
         return "bookList";
     }
-    @GetMapping("/author")
+/*    @GetMapping("/author")
     public String author(Model model){
         model.addAttribute("author",this.author.findAll());
         return "author";
-    }
+    }*/
 
     @GetMapping("/{id}")
     public String findById (Model model, @PathVariable int id){
@@ -57,6 +61,38 @@ public class BookController {
         model.addAttribute("books",book);
         return "detailsBook";
     }
+
+    @GetMapping("/addbook")
+    public String addBook (Model model){
+        Book book = new Book();
+        model.addAttribute("books",book);
+        return "addbook";
+    }
+
+
+    @PostMapping
+    public String insert(@ModelAttribute Book book,Model model){
+        model.addAttribute("books",book);
+        service.addBook(book);
+        return "bookList";
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 
 /*    @PostMapping
     public String insert(@RequestParam("id") String id,@RequestParam("title") String title, @RequestParam("authorId") String authorId){
@@ -84,5 +120,3 @@ public class BookController {
     }
 */
 
-
-}

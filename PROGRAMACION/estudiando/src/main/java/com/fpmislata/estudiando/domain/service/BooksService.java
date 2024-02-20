@@ -11,8 +11,5 @@ public interface BooksService {
 
     public Book findById (int id);
 
-
-/*
-    void insert(Book book, Integer authorID);
-*/
+    public Book addBook(Book book);
 }

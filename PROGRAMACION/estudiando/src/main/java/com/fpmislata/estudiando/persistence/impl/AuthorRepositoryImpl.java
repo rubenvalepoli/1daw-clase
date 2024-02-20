@@ -2,6 +2,7 @@ package com.fpmislata.estudiando.persistence.impl;
 
 import com.fpmislata.estudiando.domain.entity.Author;
 import com.fpmislata.estudiando.persistence.AuthorRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
