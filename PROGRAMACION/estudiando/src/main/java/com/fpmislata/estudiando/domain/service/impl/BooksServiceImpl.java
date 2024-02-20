@@ -3,13 +3,22 @@ package com.fpmislata.estudiando.domain.service.impl;
 import com.fpmislata.estudiando.domain.entity.Author;
 import com.fpmislata.estudiando.domain.entity.Book;
 import com.fpmislata.estudiando.domain.service.BooksService;
+import com.fpmislata.estudiando.persistence.BookRepository;
 import com.fpmislata.estudiando.persistence.impl.BookRepositoryImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class BooksServiceImpl implements BooksService{
-      BookRepositoryImpl repository = new BookRepositoryImpl();
+      BookRepository repository;
+
+    public BooksServiceImpl(BookRepository repository) {
+        this.repository = repository;
+    }
+
+
+
+
     @Override
     public List<Book> findall() {
         return this.repository.findall();

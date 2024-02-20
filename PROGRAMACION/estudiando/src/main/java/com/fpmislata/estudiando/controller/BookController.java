@@ -1,13 +1,10 @@
 package com.fpmislata.estudiando.controller;
 
-import com.fpmislata.estudiando.domain.entity.Author;
 import com.fpmislata.estudiando.domain.entity.Book;
 import com.fpmislata.estudiando.domain.service.AuthorService;
 import com.fpmislata.estudiando.domain.service.BooksService;
 import com.fpmislata.estudiando.domain.service.impl.AuthorServiceImpl;
 import com.fpmislata.estudiando.domain.service.impl.BooksServiceImpl;
-import com.fpmislata.estudiando.persistence.BookRepository;
-import com.fpmislata.estudiando.persistence.impl.BookRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,48 +14,42 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BookController {
 
-   // BooksService service = new BooksServiceImpl();
+    BooksService service;
 
-/*
- AuthorService authorService = new AuthorServiceImpl();
-*/
+    public BookController(BooksService service) {
+        this.service = service;
+    }
 
+    AuthorService author;
 
-
-/*    private AuthorService authorService;
-    private BooksService service;
-
-
-    public BookController(AuthorService authorService) {
-        BookRepository service = new BookRepositoryImpl();
-        this.authorService = new AuthorServiceImpl();
-    }*/
+    public BookController(AuthorService author) {
+        this.author = author;
+    }
 
 
-private final AuthorServiceImpl authorService;
-private final BooksServiceImpl booksService;
+
 
 @Autowired
     public BookController(AuthorServiceImpl authorService, BooksServiceImpl booksService) {
-        this.authorService = authorService;
-        this.booksService = booksService;
+        this.author = authorService;
+        this.service = booksService;
     }
 
 
     @GetMapping
     public String findall(Model model){
-        model.addAttribute("books",this.booksService.findall());
+        model.addAttribute("books",this.service.findall());
         return "bookList";
     }
     @GetMapping("/author")
     public String author(Model model){
-        model.addAttribute("author",this.authorService.findAll());
+        model.addAttribute("author",this.author.findAll());
         return "author";
     }
 
     @GetMapping("/{id}")
     public String findById (Model model, @PathVariable int id){
-        Book book = booksService.findById(id);
+        Book book = service.findById(id);
 
         if (book == null){
             return "error";
