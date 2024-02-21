@@ -1,5 +1,7 @@
 package com.fpmislata.estudiando.controller;
 
+import com.fpmislata.estudiando.common.AuthorIoCContainer;
+import com.fpmislata.estudiando.common.BookIoCContainer;
 import com.fpmislata.estudiando.domain.service.AuthorService;
 import com.fpmislata.estudiando.domain.service.impl.AuthorServiceImpl;
 import com.fpmislata.estudiando.persistence.AuthorRepository;
@@ -17,8 +19,7 @@ public class AuthorController {
 
 
     public AuthorController() {
-        AuthorRepository authorRepository = new AuthorRepositoryImpl();
-        this.author = new AuthorServiceImpl(authorRepository);
+        this.author = AuthorIoCContainer.getAuthorService();
     }
 
     @GetMapping("/author")

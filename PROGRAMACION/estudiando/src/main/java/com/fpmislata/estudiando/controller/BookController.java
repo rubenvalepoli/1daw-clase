@@ -1,5 +1,6 @@
 package com.fpmislata.estudiando.controller;
 
+import com.fpmislata.estudiando.common.BookIoCContainer;
 import com.fpmislata.estudiando.domain.entity.Author;
 import com.fpmislata.estudiando.domain.entity.Book;
 import com.fpmislata.estudiando.domain.service.AuthorService;
@@ -20,8 +21,7 @@ public class BookController {
     private BooksService service;
 
     public BookController() {
-        BookRepository bookRepository = new BookRepositoryImpl();
-        this.service = new BooksServiceImpl(bookRepository);
+        this.service = BookIoCContainer.getBooksService();
     }
 
  /*   AuthorService author;
@@ -30,14 +30,6 @@ public class BookController {
         this.author = author;
     }*/
 
-
-
-
-@Autowired
-    public BookController(AuthorServiceImpl authorService, BooksServiceImpl booksService) {
-        //this.author = authorService;
-        this.service = booksService;
-    }
 
 
     @GetMapping

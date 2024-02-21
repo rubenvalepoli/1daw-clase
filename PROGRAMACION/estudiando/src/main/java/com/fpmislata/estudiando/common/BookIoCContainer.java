@@ -1,8 +1,12 @@
 package com.fpmislata.estudiando.common;
 
+import com.fpmislata.estudiando.domain.service.AuthorService;
 import com.fpmislata.estudiando.domain.service.BooksService;
+import com.fpmislata.estudiando.domain.service.impl.AuthorServiceImpl;
 import com.fpmislata.estudiando.domain.service.impl.BooksServiceImpl;
+import com.fpmislata.estudiando.persistence.AuthorRepository;
 import com.fpmislata.estudiando.persistence.BookRepository;
+import com.fpmislata.estudiando.persistence.impl.AuthorRepositoryImpl;
 import com.fpmislata.estudiando.persistence.impl.BookRepositoryImpl;
 
 public class BookIoCContainer {
@@ -23,4 +27,7 @@ public class BookIoCContainer {
         }
         return bookRepository;
     }
+
+
+
 }
