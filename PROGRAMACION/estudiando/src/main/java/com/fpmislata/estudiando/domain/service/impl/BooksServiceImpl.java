@@ -8,8 +8,9 @@ import com.fpmislata.estudiando.persistence.impl.BookRepositoryImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
 public class BooksServiceImpl implements BooksService{
+
+
       private BookRepository repository;
 
     public BooksServiceImpl(BookRepository repository) {

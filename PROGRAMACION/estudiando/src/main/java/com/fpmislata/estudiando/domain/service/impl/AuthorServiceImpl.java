@@ -7,11 +7,9 @@ import com.fpmislata.estudiando.persistence.impl.AuthorRepositoryImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
 public class AuthorServiceImpl implements AuthorService {
 
-    //AuthorRepository repository = new AuthorRepositoryImpl();
-    private final AuthorRepository repository;
+    private AuthorRepository repository;
 
     public AuthorServiceImpl(AuthorRepository repository) {
         this.repository = repository;
