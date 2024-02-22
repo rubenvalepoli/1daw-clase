@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5f8572ff-1eae-4e38-b91e-e42b156cf3c9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../estudiando_dao2/src/main/java/com/fpmislata/estudiando/persistence/dao/AuthorDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../estudiando_dao2/src/main/java/com/fpmislata/estudiando/persistence/dao/entity/AuthorEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../estudiando_dao2/src/main/java/com/fpmislata/estudiando/persistence/dao/impl/AuthorDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../estudiando_dao2/src/main/java/com/fpmislata/estudiando/persistence/repository/mapper/AuthorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/common/ArtistIoCContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/common/SongIoCContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/controller/ArtistController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/controller/SongController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/domine/entity/Artist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/domine/entity/Song.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/domine/service/ArtistService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/domine/service/SongService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/domine/service/impl/ArtistServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/domine/service/impl/SongServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/dao/ArtistDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/dao/SongDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/dao/entity/ArtistEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/dao/entity/SongEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/dao/impl/ArtistDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/dao/impl/SongDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/repository/ArtistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/repository/SongRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/repository/impl/ArtistRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/repository/impl/SongRepositpryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/repository/mapper/ArtistMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/java/com/fpmislata/songsprueba/persistence/repository/mapper/SongMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/resources/templates/addSong.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/resources/templates/artist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/resources/templates/artistDetails.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/resources/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/resources/templates/songDetails.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../songsprueba/src/main/resources/templates/songs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../estudiando2/src/main/java/com/fpmislata/estudiando2/persistence/impl/BookRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../estudiando2/src/main/java/com/fpmislata/estudiando2/persistence/impl/BookRepositoryImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2ck0KEvK00CeUP01zBnvFjl16vx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Usuario/Escritorio/grado_superior/1daw-clase/PROGRAMACION/HerenciasAngela"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f8572ff-1eae-4e38-b91e-e42b156cf3c9" name="Changes" comment="" />
+      <created>1708640202771</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708640202771</updated>
+    </task>
+    <servers />
+  </component>
+</project>
