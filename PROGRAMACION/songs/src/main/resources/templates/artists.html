@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de artistas</title>
+</head>
+<body>
+<h2>Listado de artistas</h2>
+<ul>
+    <a th:each="artist : ${artists}" th:href="@{${'/artists/' + artist.id}}">
+        <li th:text="|${artist.name} - ${artist.id}|">Texto por defecto</li>
+    </a>
+</ul>
+</body>
+</html>
