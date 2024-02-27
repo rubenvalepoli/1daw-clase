@@ -1,0 +1,66 @@
+1-
+	mkdir exam2
+	cd ./exam2
+	touch ex1.md
+	notepad ex1.md
+	git add .
+	git commit -m "Exam2.1.1: Creació ex1.md"
+
+
+2-
+	git branch examen2/branch1
+ 	git branch examen2/branch2
+
+3-
+
+	$ g checkout examen2/branch1
+	$ cd ./exam2
+	$ notepad ex1.md
+	$ g add .
+	$ g cm -m "Exam2.1.2: Canvi 1"
+
+
+4-
+
+	$ g tag EX2-C1 f3f66e5
+
+
+5-
+
+	$ g checkout examen2/branch2
+	$ notepad ex1.md
+	$ g add .
+	$ g cm -m "Exam2.1.3: Canvi 2"
+
+
+6-
+	$ g tag EX2-C2 0ae5254
+
+7-
+
+	$ g revert 0ae5254
+
+8-
+
+	$ g cherry-pick f3f66e5
+
+9-
+
+	$ g cherry-pick 0ae5254
+	$ nano ex1.md
+	$ g add .
+	$ g cherry-pick --continue
+
+10-
+
+	$ g merge --squash examen2/branch2
+	$ g cm -m "Merge branch 'exam2/branch2' into main"
+
+11-
+
+	$git push
+	$git push --tags
+
+
+
+

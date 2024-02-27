@@ -26,7 +26,7 @@ class PatitosTest {
         @DisplayName("Provar numero patos")
         void numpatos(){
         patitos.numpatitos(1);
-        assertEquals(1, patitos.numpatitos());
+        assertEquals(1, patitos.getNumpatitos());
     }
 
 

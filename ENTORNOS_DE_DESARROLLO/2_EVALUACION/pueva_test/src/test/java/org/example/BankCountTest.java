@@ -9,65 +9,80 @@ import static javax.print.attribute.standard.MediaSizeName.B;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankCountTest {
-
-    @Nested
-    @DisplayName("Ver qeu la clase bank este creada")
-
-    class Count {
-        BankCount bankCount;
-
-
-        @BeforeEach
-        @DisplayName("Crear cuenta")
-        void setBankCount(){
-            bankCount = new BankCount(0);
-        }
-
-        @Test
-        @DisplayName("Añadir Dinero")
-       void addmoney(){
-            bankCount.add(5);
-            assertEquals(5, bankCount.getDeposit());
-        }
-
-        @Test
-        @DisplayName("Quiter dinero")
-        void removemoney(){
-
-            boolean result = bankCount.remove(200,500);
-            assertTrue(result);
-        }
-
-
-        @Test
-        @DisplayName("cuenta1Mayor que cuenta2")
-        void cuenta1Mayor(){
-            boolean result = bankCount.cuenta1Mayor(200,500);
-            assertFalse(result);
-        }
-
-   /*      @Nested
-         @DisplayName("Transfer")
-
-        @Test
-        @DisplayName("Comprovar si la cuenta 1 tiene el saldo sufience para transfer")
-        void transfer*/
-
-
-        /*
-
-        @Test
-        @DisplayName("cuenta1gana")
-        void cuenta1gana(){
-            boolean result = bankCount.masDinero(500,100);
-            assertTrue(result);
-        }
+/*
+    @Test
+    @DisplayName("Comprueba si BAncacount esta creado")
+    void createBAncAcount(){
+        BankCount bankCount = new BankCount();
+    }
 */
 
+    @Nested
+    class CheckConstructor{
+    @Test
+    void constructor1BankCountExist(){
+        BankCount bankCount = new BankCount(1,"Paolo");
+    }
+    @Test
+    void constructor2BankCountExist(){
+        BankCount bankCount = new BankCount(2,"Paolo", 5000);
+    }
 
+    @Test
+    void checkGeters1(){
+        BankCount bankCount = new BankCount(2,"Paolo", 5000);
+
+        assertEquals(2, bankCount.getNum());
+        assertEquals("Paolo", bankCount.getName());
+        assertEquals(5000, bankCount.getSaldo());
+    }
+    @Test
+    void checkGeters2(){
+        BankCount bankCount = new BankCount(2,"Paolo");
+
+        assertEquals(2, bankCount.getNum());
+        assertEquals("Paolo", bankCount.getName());
+        assertEquals(0, bankCount.getSaldo());
+    }
+    }
+
+    @Nested
+    class Deposit{
+        BankCount bankCount;
+
+        @BeforeEach
+        void setUp(){
+            bankCount = new BankCount(2,"Ruben");
+        }
+
+/*        @Test
+        void checkMetodDeposit(){
+            bankCount.deposit();
+        }*/
+
+        @Test
+        void CorrectIngreso(){
+            assertTrue(bankCount.deposit(50));
+        }
+
+        @Test
+        void CheckSaldo(){
+
+        }
+
+        @Test
+        void IngresoNoNegativo(){
+
+        }
 
 
 
     }
+
+
+
+
+
+
 
 }
