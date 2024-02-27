@@ -48,7 +48,7 @@ public class BankCount {
         return true;
     }
 
-    public boolean transfer(int cuenta1, int cuenta2) {
+    public boolean cuenta1Mayor(int cuenta1, int cuenta2) {
         if (cuenta1 < cuenta2){
             return false;
         }

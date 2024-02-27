@@ -40,11 +40,18 @@ class BankCountTest {
 
 
         @Test
-        @DisplayName("transfer")
-        void transfer(){
-            boolean result = bankCount.transfer(200,500);
+        @DisplayName("cuenta1Mayor que cuenta2")
+        void cuenta1Mayor(){
+            boolean result = bankCount.cuenta1Mayor(200,500);
             assertFalse(result);
         }
+
+   /*      @Nested
+         @DisplayName("Transfer")
+
+        @Test
+        @DisplayName("Comprovar si la cuenta 1 tiene el saldo sufience para transfer")
+        void transfer*/
 
 
         /*
