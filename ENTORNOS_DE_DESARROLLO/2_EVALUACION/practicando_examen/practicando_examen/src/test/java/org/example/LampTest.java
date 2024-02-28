@@ -14,7 +14,7 @@ class LampTest {
     Lamp lamp1;
     Lamp lamp2;
     @Nested
-    class ConstructorTest{
+    class ConstructorTestca{
 
 
 
@@ -107,7 +107,7 @@ class LampTest {
         @BeforeEach
         public void setUp(){
             lamp1 = new Lamp(1.0);
-            lamp2 = new Lamp(1.0, false);
+            lamp2 = new Lamp(1.0, true);
         }
         @Test
         public void  createToggel(){
