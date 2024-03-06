@@ -16,7 +16,9 @@
         <li th:each="characterMovie : ${movie.characterMovieList}" th:text="|${characterMovie.characterName} (${characterMovie.actor.name})|"></li>
     </ul>
 <form th:action="|/movies/${movie.id}|" th:method="delete">
+<!--
     <input type="hidden" name="__method" value="delete"> */ESTA LÍNEA NO ES NECESARIA PORQUE THYMELEAF CON TH:METHOD="DELETE" LO HACE AUTOMÁTICO*/
+-->
     <button type="submit">Borrar</button>
 </form>
 </body>

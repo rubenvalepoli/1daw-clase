@@ -35,16 +35,31 @@ public class MovieController {
         return "movieDetail";
     }
 
+/*  Funciona pero voy a provar el new
     @GetMapping("/add")
     public String newMovie(Model model){
         DirectorService directorService = DirectorIoC.getDirectorService();
         model.addAttribute("directorList", directorService.getAll());
         model.addAttribute("movie", new Movie());
         return "movieAddForm";
+    }*/
+
+
+    /* Voy a provar si va si no descomentar el de arriba y eliminar este */
+
+    @GetMapping("/new")
+    public String newMovie(Model model){
+        DirectorService directorService = DirectorIoC.getDirectorService();
+        model.addAttribute("directorList", directorService.getAll());
+        Director director = new Director();
+        Movie movie = new Movie();
+        movie.setDirector(director);
+        model.addAttribute("movie",movie);
+        return "movieAddForm";
     }
 
     @PostMapping
-    public String save(@ModelAttribute Movie movie, Model model, @RequestParam Integer directorId){
+    public String save(@ModelAttribute Movie movie, Model model/* @RequestParam Integer directorId*/){
         model.addAttribute("movie", movie);
         Director director = new Director();
         director.setId(directorId);
@@ -59,3 +74,6 @@ public class MovieController {
         return "redirect:/movies";
     }*/
 }
+
+
+
