@@ -1,0 +1,10 @@
+create database examen;
+use examen;
+create table decano(dni char(9) primary key, nombre varchar(50) not null, ap1 varchar(50) not null, ap2 varchar(50) not null);
+create table facultad(cod_facultad smallint primary key, nombre varchar(100) not null, dni_decano char(9) not null, foreign key (dni_decano) references decano (dni));
+create table docente(dni char(9) primary key, nombre varchar(50) not null, ap1 varchar(50) not null, ap2 varchar(50), cod_facultad smallint not null, foreign key (cod_facultad) references facultad (cod_facultad));
+create table asignatura(cod_asignatura smallint primary key, nombre varchar(50) not null);
+create table imparte(dni_docente char(9), cod_asignatura smallint, primary key(dni_docente, cod_asignatura), foreign key (dni_docente) references docente (dni), foreign key (cod_asignatura) references asignatura (cod_asignatura));
+
+
+
