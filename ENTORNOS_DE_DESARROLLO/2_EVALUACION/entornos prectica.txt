@@ -1,0 +1,1 @@
+- hay que crear dos constructores, uno con dos parametros y otro con tres
