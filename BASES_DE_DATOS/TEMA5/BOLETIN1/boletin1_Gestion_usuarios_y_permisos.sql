@@ -1,8 +1,8 @@
 use jardineria;
 
 -- EJERCICIO 1. Crea un usuario 'admin' con contraseña 'password' y permisos para acceder y administrar todas las bases de datos.;
-	-- create user 'admin'@'localhost' identified by 'password';
-    -- grant all on *.* to admin@localhost;
+	 create user 'admin'@'localhost' identified by 'password';
+     grant all on *.* to admin@localhost;
 
 -- EJERCICIO 2. Concede los privilegios SELECT, INSERT, UPDATE y DELETE sobre todas las tablas de la base de datos 'jardineria' al usuario 'admin'
 
@@ -17,6 +17,9 @@ use jardineria;
 	-- grant update on jardineria.producto to admin@localhost;
 
 -- EJERCICIO 5. Elimina el privilegio de borrado sobre la tabla 'cliente' al usuario 'admin':
+
+	-- REVOKE delete ON jardineria.cliente FROM admin@localhost;
+
 -- EJERCICIO 6. Crea un nuevo usuario 'analista' con contraseña 'securepass' y permisos solo para acceder a la tabla 'pedido'.
 -- EJERCICIO 7. Establece la caducidad de la contraseña del usuario 'analista' para que expire en 90 días.
 -- EJERCICIO 8. Concede al usuario 'analista' permisos para SELECT y UPDATE en la columna 'estado' de la tabla 'pedido'.
