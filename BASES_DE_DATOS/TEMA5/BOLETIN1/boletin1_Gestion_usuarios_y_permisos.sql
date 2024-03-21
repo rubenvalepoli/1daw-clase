@@ -1,6 +1,7 @@
 use jardineria;
 
 -- EJERCICIO 1. Crea un usuario 'admin' con contraseña 'password' y permisos para acceder y administrar todas las bases de datos.;
+
      -- create user 'admin'@'localhost' identified by 'password';
      -- grant all on *.* to admin@localhost;
 
@@ -43,7 +44,7 @@ use jardineria;
 	-- create user 'cliente1'@'localhost' identified by "clientpass";
     -- grant select, update on jardineria.pago to cliente1@localhost;
     
-    -- grant select, update on jardineria.pago to cliente1@localhost where codigo_cliente=1;
+    -- grant select, update on jardineria.pago to cliente1@localhost where codigo_cliente=current_user();
     
 
 -- EJERCICIO 11. Bloquea la cuenta del usuario 'cliente1'.
