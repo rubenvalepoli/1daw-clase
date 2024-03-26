@@ -1,0 +1,11 @@
+1- git checkout develop
+2- g branch release/1.0
+3- g checkout release/1.0
+
+
+4- g checkout main
+5- g merge release/.....
+6- g checkout develop
+7- g merge release/....
+
+
