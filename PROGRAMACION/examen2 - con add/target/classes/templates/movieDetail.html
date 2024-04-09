@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Película</title>
+</head>
+<body>
+    <h1 th:text="${movie.title}"></h1>
+    <p th:text="|Año: ${movie.year}|"></p>
+    <p th:text="|Director: ${movie.director.name}|"></p>
+    <p>Personajes:</p>
+    <ul>
+        <li th:each="characterMovie : ${movie.characterMovieList}" th:text="|${characterMovie.characterName} (${characterMovie.actor.name})|"></li>
+    </ul>
+<form th:action="|/movies/${movie.id}|" th:method="delete">
+    <input type="hidden" name="__method" value="delete"> */ESTA LÍNEA NO ES NECESARIA PORQUE THYMELEAF CON TH:METHOD="DELETE" LO HACE AUTOMÁTICO*/
+    <button type="submit">Borrar</button>
+</form>
+</body>
+</html>

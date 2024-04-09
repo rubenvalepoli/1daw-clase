@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Libro creado</title>
+</head>
+<body>
+   <ul class="title">
+        <h1>Libro creado</h1>
+        
+        <a class="crear_libro" th:href="@{/libros}">&nbsp;&nbsp;Volver a libros&nbsp;&nbsp;</a>
+    </ul>
+    <p th:text="|Título: ${book.title}|"></p>
+    <p th:text="|Autor: ${book.author}|">Author</p><br>
+</body>
+</html>
