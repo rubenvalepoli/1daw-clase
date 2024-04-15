@@ -41,7 +41,7 @@ SELECT *
 FROM cliente;
 */
 
-
+/*
 DROP DATABASE IF EXISTS test;
 CREATE DATABASE test CHARACTER SET utf8mb4;
 USE test;
@@ -72,3 +72,41 @@ ROLLBACK TO sp1;
 -- Primero, segundo, tercero y cuarto y cinco y seis no porque hemos hecho un roll back de sp1 que era un sabepoint
 SELECT *
 FROM producto;
+*/
+
+-- select @@GLOBAL.transaction_isolation;
+-- select @@autocommit;
+-- SET AUTOCOMMIT=0;
+
+
+-- 6.7.1
+
+
+DROP DATABASE IF EXISTS test;
+CREATE DATABASE test CHARACTER SET utf8mb4;
+USE test;
+
+CREATE TABLE cuentas (
+    id INTEGER UNSIGNED PRIMARY KEY,
+    saldo DECIMAL(11,2) CHECK (saldo >= 0)
+);
+
+INSERT INTO cuentas VALUES (1, 1000);
+INSERT INTO cuentas VALUES (2, 2000);
+INSERT INTO cuentas VALUES (3, 0);
+
+-- 1. Configuramos que en esta sesión vamos a utilizar el nivel de aislamiento READ UNCOMMITTED
+-- SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+-- SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+ -- SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+  SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+
+-- 2. Ejecutamos una transacción para transfereir dinero entre dos cuentas
+START TRANSACTION;
+UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;
+
+-- 3. Deshacemos las operaciones realizadas en la transacción
+    ROLLBACK;
+
+
