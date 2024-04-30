@@ -9,7 +9,11 @@ import java.util.List;
 
 public class MovieServiceImpl implements MovieService {
 
-    private MovieRepository movieRepository = new MovieRepositoryImpl();
+    private MovieRepository movieRepository;
+
+    public MovieServiceImpl(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
 
     @Override
     public List<Movie> getAll() {

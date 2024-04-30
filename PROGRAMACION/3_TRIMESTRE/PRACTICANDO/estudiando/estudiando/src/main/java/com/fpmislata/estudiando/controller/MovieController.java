@@ -1,5 +1,6 @@
 package com.fpmislata.estudiando.controller;
 
+import com.fpmislata.estudiando.common.container.MovieIoC;
 import com.fpmislata.estudiando.domain.service.MovieService;
 import com.fpmislata.estudiando.domain.service.impl.MovieServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MovieController {
 
-    private MovieService movieService = new MovieServiceImpl();
+    private MovieService movieService;
+
+    public MovieController() {
+        this.movieService = MovieIoC.getMovieService();
+    }
 
     @GetMapping
     public String getAll(Model model){

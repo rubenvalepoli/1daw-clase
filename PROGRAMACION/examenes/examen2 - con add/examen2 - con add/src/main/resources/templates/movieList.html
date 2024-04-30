@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listado películas</title>
+</head>
+<body>
+<ul>
+    <a th:each="movie : ${movieList}" th:href="@{${'/movies/' + movie.id}}">
+        <li th:text="|${movie.title} (${movie.year})|">Texto por defecto</li>
+    </a>
+</ul><br />
+<a th:href="@{/movies/add}">Añadir una película</a>
+</body>
+</html>

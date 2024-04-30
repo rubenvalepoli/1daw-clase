@@ -11,7 +11,8 @@ public class MovieMapper {
         }
         return new Movie(
                 movieEntity.getId(),
-                movieEntity.getName()
+                movieEntity.getName(),
+                movieEntity.getYear()
         );
     }
 

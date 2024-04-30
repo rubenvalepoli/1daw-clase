@@ -6,18 +6,23 @@ public class Movie {
 
     private String name;
 
+    private int year;
+
     private Director director;
 
-    public Movie(int id, String name, Director director) {
+    public Movie(int id, String name, int year, Director director) {
         this.id = id;
         this.name = name;
+        this.year = year;
         this.director = director;
     }
 
-    public Movie(int id, String name) {
+    public Movie(int id, String name, int year) {
         this.id = id;
         this.name = name;
+        this.year = year;
     }
+
 
     public int getId() {
         return id;
@@ -35,6 +40,14 @@ public class Movie {
         this.name = name;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public Director getDirector() {
         return director;
     }
@@ -48,6 +61,7 @@ public class Movie {
         return "Movie{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", year=" + year +
                 ", director=" + director +
                 '}';
     }

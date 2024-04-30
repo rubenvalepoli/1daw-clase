@@ -1,5 +1,6 @@
 package com.fpmislata.estudiando.persistence.repository.impl;
 
+import com.fpmislata.estudiando.common.container.DirectorIoC;
 import com.fpmislata.estudiando.domain.entity.Director;
 import com.fpmislata.estudiando.domain.entity.Movie;
 import com.fpmislata.estudiando.persistence.dao.DirectorDao;
@@ -17,8 +18,12 @@ import java.util.List;
 
 public class MovieRepositoryImpl implements MovieRepository {
 
-    private MovieDao movieDao = new MovieDaoImpl();
-    private DirectorDao directorDao = new DirectorDaoImpl();
+    private MovieDao movieDao;
+    private DirectorDao directorDao = DirectorIoC.getDirectorDao();
+
+    public MovieRepositoryImpl(MovieDao movieDao) {
+        this.movieDao = movieDao;
+    }
 
     @Override
     public List<Movie> getAll() {

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir</title>
+</head>
+<body>
+<form action="#" th:action="@{/movies}" th:object="${movie}" method="post">
+    <p>Título de la película:<br /><input type="text" th:field="*{title}"></p>
+    <p>Año de la película:<br /><input type="number" th:field="*{year}"></p>
+    <p>Director de la película:</p>
+    <select th:field="*{director.id}">
+        <option th:each="director:${directorList}" th:value="${director.id}" th:text="${director.name}"></option>
+    </select>
+    <br /><br />
+    <input type="submit" id="enviar" name="enviar" value="Enviar">
+</form>
+</body>
+</html>

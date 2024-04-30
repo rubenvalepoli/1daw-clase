@@ -1,8 +1,8 @@
-package com.fpmislata.estudiando.persistence.dao.impl;
+package com.fpmislata.examen2.persistence.dao.impl;
 
-import com.fpmislata.estudiando.persistence.dao.MovieDao;
-import com.fpmislata.estudiando.persistence.dao.entity.DirectorEntity;
-import com.fpmislata.estudiando.persistence.dao.entity.MovieEntity;
+import com.fpmislata.examen2.domain.entity.Movie;
+import com.fpmislata.examen2.persistence.dao.MovieDao;
+import com.fpmislata.examen2.persistence.dao.entity.MovieEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class MovieDaoImpl implements MovieDao {
 
     private List<MovieEntity> movieEntityList = new ArrayList<>();
 
-    public MovieDaoImpl(){
+    public MovieDaoImpl() {
         this.movieEntityList.add(new MovieEntity(1, "El padrino", 1972, 1));
         this.movieEntityList.add(new MovieEntity(2, "Cadena perpetua", 1994, 2));
         this.movieEntityList.add(new MovieEntity(3, "La lista de Schindler", 1993, 3));
@@ -26,11 +26,12 @@ public class MovieDaoImpl implements MovieDao {
     }
 
     @Override
-    public List<MovieEntity> getAll(){
-        return movieEntityList;
+    public List<MovieEntity> getAll() {
+        return this.movieEntityList;
     }
+
     @Override
-    public MovieEntity findById(int id){
+    public MovieEntity findById(Integer id) {
         for (MovieEntity movieEntity : movieEntityList){
             if (id == movieEntity.getId()){
                 return movieEntity;
@@ -39,6 +40,14 @@ public class MovieDaoImpl implements MovieDao {
         return null;
     }
 
+    @Override
+    public void insert(MovieEntity movieEntity) {
+        movieEntityList.add(movieEntity);
+    }
 
-
+    @Override
+    public void delete(Integer id) {
+        MovieEntity movieEntity = findById(id);
+        movieEntityList.remove(movieEntity);
+    }
 }

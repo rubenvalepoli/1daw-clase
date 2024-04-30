@@ -8,11 +8,14 @@ public class MovieEntity {
 
     private String name;
 
+    private int year;
+
     private int id_director;
 
-    public MovieEntity(int id, String name, int id_director) {
+    public MovieEntity(int id, String name, int year, int id_director) {
         this.id = id;
         this.name = name;
+        this.year = year;
         this.id_director = id_director;
     }
 
@@ -32,6 +35,14 @@ public class MovieEntity {
         this.name = name;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public int getId_director() {
         return id_director;
     }
@@ -45,6 +56,7 @@ public class MovieEntity {
         return "MovieEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", year=" + year +
                 ", id_director=" + id_director +
                 '}';
     }
