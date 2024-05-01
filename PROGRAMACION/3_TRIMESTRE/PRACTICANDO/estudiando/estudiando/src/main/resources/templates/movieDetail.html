@@ -6,8 +6,11 @@
 </head>
 <body>
     <h1 th:text="${movie.name}"></h1>
-    <h2 th:text="${movie.year}"></h2>
-    <!--<p th:text="|Año: ${movie.year}|"></p>-->
+    <p th:text="|Año: ${movie.year}|"></p>
     <p th:text="|Director: ${movie.director.name}|"></p>
+    <p>Personajes:</p>
+    <ul>
+        <li th:each="characterMovie : ${movie.characterMovieList}" th:text="|${characterMovie.characterName} (${characterMovie.actor.name})|"></li>
+    </ul>
 </body>
 </html>

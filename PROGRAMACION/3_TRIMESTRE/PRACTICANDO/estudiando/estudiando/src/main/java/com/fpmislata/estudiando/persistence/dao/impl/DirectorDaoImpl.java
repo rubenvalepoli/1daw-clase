@@ -27,4 +27,9 @@ public class DirectorDaoImpl implements DirectorDao {
         }
         return null;
     }
+
+    @Override
+    public List<DirectorEntity> getAll() {
+        return this.directorEntityList;
+    }
 }

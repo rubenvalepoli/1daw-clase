@@ -1,6 +1,9 @@
 package com.fpmislata.estudiando.domain.entity;
 
+import java.util.List;
+
 public class Movie {
+
 
     private int id;
 
@@ -10,11 +13,14 @@ public class Movie {
 
     private Director director;
 
-    public Movie(int id, String name, int year, Director director) {
+    private List<CharacterMovie> characterMovieList;
+
+    public Movie(int id, String name, int year, Director director, List<CharacterMovie> characterMovieList) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.director = director;
+        this.characterMovieList = characterMovieList;
     }
 
     public Movie(int id, String name, int year) {
@@ -22,6 +28,10 @@ public class Movie {
         this.name = name;
         this.year = year;
     }
+
+    public Movie() {
+    }
+
 
 
     public int getId() {
@@ -56,6 +66,13 @@ public class Movie {
         this.director = director;
     }
 
+    public void setCharacterMovieList(List<CharacterMovie> characterMovieList) {
+    }
+
+    public List<CharacterMovie> getCharacterMovieList() {
+        return characterMovieList;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -63,6 +80,7 @@ public class Movie {
                 ", name='" + name + '\'' +
                 ", year=" + year +
                 ", director=" + director +
+                ", characterMovieList=" + characterMovieList +
                 '}';
     }
 }

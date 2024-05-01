@@ -9,4 +9,6 @@ public interface MovieRepository {
     public List<Movie> getAll();
     public Movie findById(int id);
 
+    void insert(Movie movie);
+
 }

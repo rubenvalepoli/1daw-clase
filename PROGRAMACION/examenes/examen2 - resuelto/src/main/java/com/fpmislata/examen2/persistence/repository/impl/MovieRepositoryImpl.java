@@ -68,4 +68,9 @@ public class MovieRepositoryImpl implements MovieRepository {
         movie.setDirector(director);
         return movie;
     }
+
+    @Override
+    public void insert(Movie movie) {
+
+    }
 }
