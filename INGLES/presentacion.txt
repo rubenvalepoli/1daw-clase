@@ -1,0 +1,13 @@
+** GITHUB **
+
+	In this sprint, we continue as in the other sprints, the branche is linear.
+
+	We had some problems but we were able to solve them.
+
+** DATABASE INSERTIONS AND BUG FIXES **
+
+	And implements the Inssertions in the databases. In this procces appear problems because. 
+	But we have been able to solve them
+
+
+
