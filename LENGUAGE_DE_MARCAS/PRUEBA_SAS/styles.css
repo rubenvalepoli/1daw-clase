@@ -1,0 +1,22 @@
+.caja h2 {
+  color: black;
+  font-family: sans-serif;
+}
+.caja p {
+  font-family: cursive, sans-serif, monospace;
+  text-decoration: underline;
+}
+
+body {
+  background: #ccc;
+}
+
+h1 {
+  color: blue;
+}
+
+p {
+  color: blue;
+}
+
+/*# sourceMappingURL=styles.css.map */

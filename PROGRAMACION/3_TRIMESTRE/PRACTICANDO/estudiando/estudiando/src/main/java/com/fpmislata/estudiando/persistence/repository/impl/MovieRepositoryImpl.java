@@ -53,16 +53,15 @@ public class MovieRepositoryImpl implements MovieRepository {
     public Movie findById(int id){
         MovieEntity movieEntity = movieDao.findById(id);
         Director director = DirectorMapper.toDirector(directorDao.findById(movieEntity.getId_director()));
-       List<CharacterMovieEntity>characterMovieEntityList = characterMovieDao.findByMovie(id);
-       List<CharacterMovie> characterMovieList = new ArrayList<>();
-       for (CharacterMovieEntity characterMovieEntity1 : characterMovieEntityList){
-        Actor actor = ActorMapper.toActor(actorDao.findById(characterMovieEntity1.getActorId()));
-        CharacterMovie characterMovie = CharacterMovieMapper.toCharacterMovie(characterMovieEntity1);
-        characterMovie.setActor(actor);
-        characterMovieList.add(characterMovie);
+        List<CharacterMovieEntity>characterMovieEntityList = characterMovieDao.findByMovie(id);
+        List<CharacterMovie> characterMovieList = new ArrayList<>();
+
+        for (CharacterMovieEntity characterMovieEntity1 : characterMovieEntityList){
+            Actor actor = ActorMapper.toActor(actorDao.findById(characterMovieEntity1.getActorId()));
+            CharacterMovie characterMovie = CharacterMovieMapper.toCharacterMovie(characterMovieEntity1);
+            characterMovie.setActor(actor);
+            characterMovieList.add(characterMovie);
        }
-
-
 
         Movie movie = MovieMapper.toMovie(movieEntity);
         movie.setCharacterMovieList(characterMovieList);

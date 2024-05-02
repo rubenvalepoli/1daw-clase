@@ -67,6 +67,7 @@ public class Movie {
     }
 
     public void setCharacterMovieList(List<CharacterMovie> characterMovieList) {
+        this.characterMovieList = characterMovieList;
     }
 
     public List<CharacterMovie> getCharacterMovieList() {
