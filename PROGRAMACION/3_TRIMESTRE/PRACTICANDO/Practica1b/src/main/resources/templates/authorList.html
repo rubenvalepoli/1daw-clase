@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Auhor</title>
+</head>
+<body>
+<h2>Listado de Autores</h2>
+<ul>
+    <li th:each="author : ${author}">
+        <a th:text="${author.author}" th:href="@{${'/author/' + author.author}}">.</a>
+    </li>
+</ul>
+</body>
+</html>

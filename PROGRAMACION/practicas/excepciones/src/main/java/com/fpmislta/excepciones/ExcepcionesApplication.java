@@ -1,8 +1,11 @@
 package com.fpmislta.excepciones;
 
+import com.fpmislta.excepciones.exception.AgeLowerException;
+import com.fpmislta.excepciones.exception.AgeTopException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -12,17 +15,29 @@ public class ExcepcionesApplication {
 		//SpringApplication.run(ExcepcionesApplication.class, args);
 		Scanner reader = new Scanner(System.in);
 
-		/*EJERCICIO 2D*/
-
-		System.out.print("introduce la edad: ");
-		int edad = reader.nextInt();
-		verificarEdad(edad);
-		System.out.println("Puedes pasar");
-
+		/*EJERCICIO 3E*/
+		try {
+			System.out.print("introduce la edad: ");
+			int edad = reader.nextInt();
+			verificarEdad(edad);
+			System.out.println("Puedes pasar");
+		}catch (InputMismatchException e){
+			System.out.println("La edad tiene que ser un numero entero");
+		} catch (AgeLowerException e) {
+			System.out.println(e.getMessage());
+		}catch (AgeTopException e){
+			System.out.println(e.getMessage());
+		}catch (Exception e){
+			System.out.println("Ha ocurrido un error inesperado");
+		}finally {
+			reader.close();
+		}
 	}
-	public static boolean verificarEdad(int edad){
+	public static boolean verificarEdad(int edad) throws AgeLowerException, AgeTopException{
 		if (edad < 18){
-			throw new RuntimeException();
+			throw new AgeLowerException();
+		}if (edad > 65){
+			throw new AgeTopException();
 		}
 		return true;
 	}
@@ -139,3 +154,166 @@ public class ExcepcionesApplication {
 		}
 		return true;
 	}*/
+
+
+
+/*EJERCICIO 2E
+		try {
+				System.out.print("introduce la edad: ");
+				int edad = reader.nextInt();
+				verificarEdad(edad);
+				System.out.println("Puedes pasar");
+				}catch (InputMismatchException e){
+				System.out.println("La edad tiene que ser un numero entero");
+				} catch (RuntimeException e){
+				System.out.println("Tienes que tener 18 años como minimo para pasar");
+				}finally {
+				reader.close();
+				}
+
+				}
+public static boolean verificarEdad(int edad){
+		if (edad < 18){
+		throw new RuntimeException();
+		}
+		return true;
+		}*/
+
+
+
+
+/*EJERCICIO 3A
+		try {
+				System.out.print("introduce la edad: ");
+				int edad = reader.nextInt();
+				verificarEdad(edad);
+				System.out.println("Puedes pasar");
+				} catch (RuntimeException e){
+				System.out.println("No puedes pasar");
+				}finally {
+				reader.close();
+				}
+
+				}
+public static boolean verificarEdad(int edad){
+		if (edad < 18 || edad > 65){
+		throw new RuntimeException();
+		}
+		return true;
+		}*/
+
+
+/*EJERCICIO 3B
+		try {
+				System.out.print("introduce la edad: ");
+				int edad = reader.nextInt();
+				verificarEdad(edad);
+				System.out.println("Puedes pasar");
+				}catch (InputMismatchException e){
+				System.out.println("La edad tiene que ser un numero entero");
+				} catch (RuntimeException e){
+				System.out.println(e.getMessage());
+				}finally {
+				reader.close();
+				}
+				}
+public static boolean verificarEdad(int edad){
+		if (edad < 18){
+		throw new RuntimeException("Tienes que ser mayor de edad para pasar");
+		}if (edad > 65){
+		throw new RuntimeException("Tienes que tener menos de 65 años para pasar");
+		}
+		return true;
+		}*/
+
+
+
+
+
+
+/*EJERCICIO 3C
+		try {
+				System.out.print("introduce la edad: ");
+				int edad = reader.nextInt();
+				verificarEdad(edad);
+				System.out.println("Puedes pasar");
+				}catch (InputMismatchException e){
+				System.out.println("La edad tiene que ser un numero entero");
+				} catch (AgeLowerException e) {
+				System.out.println(e.getMessage());
+				}catch (AgeTopException e){
+				System.out.println(e.getMessage());
+				}finally {
+				reader.close();
+				}
+				}
+public static boolean verificarEdad(int edad) throws AgeLowerException, AgeTopException{
+		if (edad < 18){
+		throw new AgeLowerException();
+		}if (edad > 65){
+		throw new AgeTopException();
+		}
+		return true;
+		}*/
+
+
+
+
+/*EJERCICIO 3D
+		try {
+				System.out.print("introduce la edad: ");
+				int edad = reader.nextInt();
+				verificarEdad(edad);
+				System.out.println("Puedes pasar");
+				}catch (InputMismatchException e){
+				System.out.println("La edad tiene que ser un numero entero");
+				} catch (AgeLowerException e) {
+				System.out.println(e.getMessage());
+				}catch (AgeTopException e){
+				System.out.println(e.getMessage());
+				}catch (Exception e){
+				System.out.println("Ha ocurrido un error inesperado");
+				}finally {
+				reader.close();
+				}
+				}
+public static boolean verificarEdad(int edad) throws AgeLowerException, AgeTopException{
+		if (edad < 18){
+		throw new AgeLowerException();
+		}if (edad > 65){
+		throw new AgeTopException();
+		}
+		return true;
+		}*/
+
+
+
+/*EJERCICIO 3E
+		try {
+				System.out.print("introduce la edad: ");
+				int edad = reader.nextInt();
+				verificarEdad(edad);
+				System.out.println("Puedes pasar");
+				}catch (InputMismatchException e){
+				System.out.println("La edad tiene que ser un numero entero");
+				} catch (AgeLowerException e) {
+				System.out.println(e.getMessage());
+				}catch (AgeTopException e){
+				System.out.println(e.getMessage());
+				}catch (Exception e){
+				System.out.println("Ha ocurrido un error inesperado");
+				}finally {
+				reader.close();
+				}
+				}
+public static boolean verificarEdad(int edad) throws AgeLowerException, AgeTopException{
+		if (edad < 18){
+		throw new AgeLowerException();
+		}if (edad > 65){
+		throw new AgeTopException();
+		}
+		return true;
+		}*/
+
+
+
