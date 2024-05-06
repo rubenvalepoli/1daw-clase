@@ -34,23 +34,22 @@ public class BookController {
 
     @GetMapping("/{id}")
     public String findById(Model model, @PathVariable int id) throws ResourceNotFoundException {
-        try {
+
             model.addAttribute("book", this.service.findById(id));
             return "bookDetail";
-        } catch (Exception e){
-            throw e;
-        }
         }
 
     @GetMapping("/addBook")
     public String getInsertForm(Model model){
         Book book = new Book();
+
         model.addAttribute("book", book);
         return "addBook";
     }
 
     @GetMapping("/author")
     public String all(Model model){
+
         model.addAttribute("author",this.author.all());
         return "authorList";
     }
