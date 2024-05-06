@@ -1,0 +1,133 @@
+-- EJERCICIO 1. Escribe un cursor que seleccione empleados junto con el nombre de su
+-- departamento. Después recorre dicho cursor y muestra su contenido.
+
+DECLARE
+    CURSOR c_empleados IS
+        SELECT e.nombre AS nombre_empleado, e.apellido AS apellido_empleado, d.nombre AS nombre_departamento
+        FROM empleados e
+        INNER JOIN departamentos d ON e.departamento_id = d.id;
+    
+    v_nombre_empleado empleados.nombre%TYPE;
+    v_apellido_empleado empleados.apellido%TYPE;
+    v_nombre_departamento departamentos.nombre%TYPE;
+BEGIN
+    OPEN c_empleados;
+    LOOP
+        FETCH c_empleados INTO v_nombre_empleado, v_apellido_empleado, v_nombre_departamento;
+        EXIT WHEN c_empleados%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Nombre del empleado: ' || v_nombre_empleado || ' ' || v_apellido_empleado || ', Departamento: ' || v_nombre_departamento);
+    END LOOP;
+    CLOSE c_empleados;
+END;
+/
+
+
+
+
+-- EJERCICIO 2. Escribe un cursor que seleccione empleados de un departamento específico que
+-- se le pase como parámetro y muestre su nombre y salario.
+
+CREATE PROCEDURE MostrarEmpleadosPorDepartamento (@Departamento VARCHAR(50))
+AS
+BEGIN
+    DECLARE @NombreEmpleado VARCHAR(100)
+    DECLARE @SalarioEmpleado DECIMAL(10, 2)
+
+    DECLARE EmpleadosCursor CURSOR FOR
+    SELECT Nombre, Salario
+    FROM Empleados
+    WHERE Departamento = @Departamento;
+
+    OPEN EmpleadosCursor;
+
+    FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        PRINT 'Nombre: ' + @NombreEmpleado + ', Salario: ' + CAST(@SalarioEmpleado AS VARCHAR(20));
+        FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
+    END
+
+    CLOSE EmpleadosCursor;
+    DEALLOCATE EmpleadosCursor;
+END
+
+
+
+
+
+-- EJERCICIO 3. Escribe un cursor que muestre el nombre y salario de los empleados hasta que
+-- el salario sea mayor que 4000.
+
+
+DECLARE @NombreEmpleado VARCHAR(100)
+DECLARE @SalarioEmpleado DECIMAL(10, 2)
+
+DECLARE EmpleadosCursor CURSOR FOR
+SELECT Nombre, Salario
+FROM Empleados;
+
+OPEN EmpleadosCursor;
+
+FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    IF @SalarioEmpleado > 4000
+        BREAK;
+
+    PRINT 'Nombre: ' + @NombreEmpleado + ', Salario: ' + CAST(@SalarioEmpleado AS VARCHAR(20));
+    FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
+END
+
+CLOSE EmpleadosCursor;
+DEALLOCATE EmpleadosCursor;
+
+
+
+
+-- EJERCICIO 4. Escribe un cursor que seleccione empleados y muestre su nombre y salario,
+-- manejando la excepción de cuando no hay datos disponibles.
+
+
+DECLARE @NombreEmpleado VARCHAR(100)
+DECLARE @SalarioEmpleado DECIMAL(10, 2)
+
+DECLARE EmpleadosCursor CURSOR FOR
+SELECT Nombre, Salario
+FROM Empleados;
+
+-- Comprobación de si hay filas en el cursor
+IF NOT EXISTS (SELECT * FROM Empleados)
+BEGIN
+    PRINT 'No hay datos disponibles.';
+END
+ELSE
+BEGIN
+    OPEN EmpleadosCursor;
+
+    FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        PRINT 'Nombre: ' + @NombreEmpleado + ', Salario: ' + CAST(@SalarioEmpleado AS VARCHAR(20));
+        FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
+    END
+
+    CLOSE EmpleadosCursor;
+    DEALLOCATE EmpleadosCursor;
+END
+
+
+
+
+-- EJERCICIO 5. Escribe un cursor que cuente el número de empleados y muestre el total.
+
+
+
+
+
+
+
+-- EJERCICIO 6. Escribe un cursor que actualice el salario de todos los empleados en un
+-- departamento específico.

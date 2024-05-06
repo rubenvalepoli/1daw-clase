@@ -1,0 +1,98 @@
+-- EJERCICIO 1. Crea un procedimiento para insertar un nuevo empleado. Este procedimiento recibirá como parámetros el nombre, salario y departamento del nuevo empleado y lo insertará en la tabla “empleados”.
+
+	create or replace procedure insertar_empleados(
+		nombre varchar2,
+		salario number,
+		departamento_id varchar2
+	) is
+	begin
+		insert into empleados(nombre, salario, departamento_id)
+		values(nombre, salario, departamento_id);
+		
+	EXCEPTION
+	
+	WHEN OTHERS THEN
+	DBMS_OUTPUT.PUT_LINE('Error al insertar empleado'||sqlerrm);
+	
+	
+	end insertar_empleados;
+
+
+
+-- EJERCICIO 2. Crea un procedimiento para actualizar el salario de un empleado: Este procedimiento recibirá como parámetros el ID del empleado y el nuevo salario, y actualizará el salario del empleado correspondiente en la tabla empleados.
+
+	c	create or replace procedure update_empleados(
+		id_empleado number,
+		nuevo_salario number
+        
+	) is
+	begin
+		update empleados set salario = nuevo_salario where id = id_empleado;
+		commit;
+		
+		
+	EXCEPTION
+
+	WHEN NO_DATA_FOUND then
+	DBMS_OUTPUT.PUT_LINE('El empleado djdjjdj no existe');
+
+        
+	WHEN OTHERS THEN
+	DBMS_OUTPUT.PUT_LINE('Error al insertar empleado'||sqlerrm);
+	
+	
+	end update_empleados;
+
+
+-- EJERCICIO 3. Crear un procedimiento para calcular el salario promedio de un departamento:
+-- Este procedimiento recibirá como parámetro el ID del departamento y calculará el salario
+-- promedio de todos los empleados en ese departamento.
+
+	create or replace procedure calcular_salario(
+		id_departamento number,
+		salario number
+        
+	) is
+        v_salario_promedio number;
+	begin
+		select avg(salario) into v_salario_promedio from empleados where departamento_id=id_departamento;
+		
+		
+	EXCEPTION
+
+	WHEN NO_DATA_FOUND then
+	DBMS_OUTPUT.PUT_LINE('El empleado djdjjdj no existe');
+
+        
+	WHEN OTHERS THEN
+	DBMS_OUTPUT.PUT_LINE('Error al insertar empleado'||sqlerrm);
+	
+	
+	end calcular_salario;
+
+
+
+
+EJERCICIO 4. Crear un procedimiento para eliminar un empleado: Este procedimiento recibirá como parámetro el ID del empleado y lo eliminará de la tabla empleados.
+
+
+	CREATE OR REPLACE PROCEDURE eliminar_empleado(
+		id_empleado IN NUMBER
+	) AS
+	BEGIN
+		DELETE FROM empleados
+		WHERE id = id_empleado;
+		
+		COMMIT; -- Confirmar la transacción
+	END eliminar_empleado;
+	/
+
+
+	BEGIN
+		eliminar_empleado(123);
+	END;
+	/
+
+
+
+
