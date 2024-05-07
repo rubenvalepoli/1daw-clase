@@ -1,13 +1,20 @@
 package com.fpmislata.estudiando.persistence.dao.impl;
 
+import com.fpmislata.estudiando.persistence.bd.RawSql;
 import com.fpmislata.estudiando.persistence.dao.ActorDao;
 import com.fpmislata.estudiando.persistence.dao.entity.ActorEntity;
+import com.fpmislata.estudiando.persistence.dao.mapper.ActorEntityMapper;
+import com.fpmislata.estudiando.persistence.repository.mapper.ActorMapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class ActorDaoImpl implements ActorDao {
 
-    private List<ActorEntity> actorEntityList = List.of(
+    String sql = "SELECT name FROM actor";
+
+    /*private List<ActorEntity> actorEntityList = List.of(
             new ActorEntity(1, "Marlon Brando"),
             new ActorEntity(2, "Al Pacino"),
             new ActorEntity(3, "James Caan"),
@@ -34,16 +41,20 @@ public class ActorDaoImpl implements ActorDao {
             new ActorEntity(24, "Karen Allen"),
             new ActorEntity(25, "John Rhys-Davies"),
             new ActorEntity(26, "Alison Doody")
-    );
+    );*/
 
 
     @Override
     public ActorEntity findById(Integer id) {
-        for (ActorEntity actorEntity : actorEntityList){
-            if (id == actorEntity.getId()){
-                return actorEntity;
-            }
+        ActorEntity actorEntity;
+        List<ActorEntity> actorEntityList = List.of();
+        ResultSet resultSet = RawSql.select("SELECT * FROM actor;",null);
+        try {
+            resultSet.next();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
         }
+        actorEntity = ActorEntityMapper.toActorEntity(resultSet);
         return null;
     }
 }
