@@ -1,0 +1,46 @@
+// Variables
+$color-fondo: #181D3E;
+$color-fondo-navbar: #5B6D8A;
+$color-letra-titulos: #F2D750;
+$color-letra-navbar:#F2D750;
+
+$theme-colors:(
+    "primary":$color-fondo,
+    "nav":$color-fondo-navbar
+);
+
+@import "../bootstrap-5.3.3/scss/bootstrap.scss";
+
+
+
+body{
+    background-color: $color-fondo;
+    }
+
+h3{
+    color: $color-letra-titulos;
+}
+
+
+.nav-item{
+    color: $color-letra-navbar;
+}
+$border-radius:2rem;
+
+.img-navbar{
+    width: 100px;
+}
+
+.footer {
+    padding: 1.5em;
+    text-align: center;
+    background-color: rgba(66, 70, 96);
+    position: relative;
+}
+
+.img_footer {
+    margin-left: 2em;
+    margin-right: 2em;
+    width: 1.5vw;
+}
+
