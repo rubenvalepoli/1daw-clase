@@ -3,7 +3,7 @@ package com.fpmislata.estudiando.persistence.bd;
 import java.sql.*;
 import java.util.List;
 
-public class RawSql {
+public class rawSql {
     private static final DBConnection dbConnection = new DBConnection();
 
     public static ResultSet select(String sql, List<Object> params) {
@@ -31,11 +31,11 @@ public class RawSql {
     }
 
     public static int update(String sql, List<Object> params) {
-        return RawSql.statement(sql, params);
+        return rawSql.statement(sql, params);
     }
 
     public static int delete(String sql, List<Object> params) {
-        return RawSql.statement(sql, params);
+        return rawSql.statement(sql, params);
     }
 
 

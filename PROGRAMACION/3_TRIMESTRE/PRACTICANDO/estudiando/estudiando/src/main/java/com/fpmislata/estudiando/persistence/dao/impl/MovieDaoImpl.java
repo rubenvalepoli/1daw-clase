@@ -1,17 +1,22 @@
 package com.fpmislata.estudiando.persistence.dao.impl;
 
+import com.fpmislata.estudiando.persistence.bd.rawSql;
 import com.fpmislata.estudiando.persistence.dao.MovieDao;
 import com.fpmislata.estudiando.persistence.dao.entity.DirectorEntity;
 import com.fpmislata.estudiando.persistence.dao.entity.MovieEntity;
+import com.fpmislata.estudiando.persistence.dao.mapper.MovieEntityMapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MovieDaoImpl implements MovieDao {
 
     private List<MovieEntity> movieEntityList = new ArrayList<>();
 
-    public MovieDaoImpl(){
+   /* public MovieDaoImpl(){
         this.movieEntityList.add(new MovieEntity(1, "El padrino", 1972, 1));
         this.movieEntityList.add(new MovieEntity(2, "Cadena perpetua", 1994, 2));
         this.movieEntityList.add(new MovieEntity(3, "La lista de Schindler", 1993, 3));
@@ -23,20 +28,35 @@ public class MovieDaoImpl implements MovieDao {
         this.movieEntityList.add(new MovieEntity(9, "En busca del arca perdida", 1981, 3));
         this.movieEntityList.add(new MovieEntity(10, "Indiana Jones y la última cruzada", 1989, 3));
 
-    }
+    }*/
 
     @Override
     public List<MovieEntity> getAll(){
+        List<MovieEntity> movieEntityList = new ArrayList<>();
+        ResultSet resultSet = rawSql.select("SELECT id , name, year, id_director FROM movie;",null);
+        movieEntityList = (MovieEntityMapper.toMovieEntityList(resultSet));
         return movieEntityList;
     }
     @Override
-    public MovieEntity findById(int id){
-        for (MovieEntity movieEntity : movieEntityList){
+    public MovieEntity findById(int id) throws SQLException {
+
+        MovieEntity movieEntity;
+        List<Object> listMovieId= List.of(id);
+        ResultSet resultSet = rawSql.select("""
+            SELECT m.* FROM movie m
+            INNER JOIN characterMovie cm
+            ON cm.movieId = m.id
+            and cm.id = ?;
+                """,null);
+
+
+
+        /*for (MovieEntity movieEntity : movieEntityList){
             if (id == movieEntity.getId()){
                 return movieEntity;
             }
         }
-        return null;
+        return null;*/
     }
 
 

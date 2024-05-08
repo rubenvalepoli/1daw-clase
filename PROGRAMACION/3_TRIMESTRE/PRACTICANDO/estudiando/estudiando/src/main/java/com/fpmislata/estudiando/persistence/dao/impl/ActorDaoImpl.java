@@ -1,7 +1,8 @@
 package com.fpmislata.estudiando.persistence.dao.impl;
 
-import com.fpmislata.estudiando.persistence.bd.RawSql;
+import com.fpmislata.estudiando.persistence.bd.rawSql;
 import com.fpmislata.estudiando.persistence.dao.ActorDao;
+import com.fpmislata.estudiando.persistence.dao.CharacterMovieDao;
 import com.fpmislata.estudiando.persistence.dao.entity.ActorEntity;
 import com.fpmislata.estudiando.persistence.dao.mapper.ActorEntityMapper;
 
@@ -10,8 +11,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ActorDaoImpl implements ActorDao {
-
-    String sql = "SELECT name FROM actor";
 
     /*private List<ActorEntity> actorEntityList = List.of(
             new ActorEntity(1, "Marlon Brando"),
@@ -47,7 +46,7 @@ public class ActorDaoImpl implements ActorDao {
     public List<ActorEntity> findByMovieId(Integer movieId) throws SQLException {
         //ActorEntity actorEntity;
         //List<ActorEntity> actorEntityList = List.of();
-        ResultSet resultSet = RawSql.select("""
+        ResultSet resultSet = rawSql.select("""
             SELECT a.* FROM actor a
             INNER JOIN characterMovie cm
             ON a.id = cm.actorId
@@ -63,14 +62,20 @@ public class ActorDaoImpl implements ActorDao {
 
     @Override
     public ActorEntity findByCharacterId(Integer characterId) throws SQLException {
-        String sql = """
+        ActorEntity actorEntity;
+        List <Object> characterId1 = List.of(characterId);
+        ResultSet resultSet = rawSql.select("""
                     SELECT a.* FROM actor a
                     INNER JOIN characterMovie cm
                     ON cm.actorId = a.id
-                    and cm.id = ?
-                """;
-        ResultSet resultSet = RawSql.select(sql, List.of(characterId));
-        resultSet.next();
+                    and cm.id = ?;
+                """,characterId1);
+
+        try {
+            resultSet.next();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
         return ActorEntityMapper.toActorEntity(resultSet);
     }
 }
