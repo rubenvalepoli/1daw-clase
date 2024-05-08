@@ -129,4 +129,14 @@ INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (30, 10,
 SELECT a.* FROM actor a
     INNER JOIN characterMovie cm
     ON cm.actorId = a.id
-    and cm.id = 1
+    and cm.id = 1;
+
+
+
+SELECT m.* FROM movie m
+INNER JOIN characterMovie cm
+ON cm.movieId = m.id
+and cm.id = 2;
+
+
+SELECT id , name, year, id_director FROM movie;
