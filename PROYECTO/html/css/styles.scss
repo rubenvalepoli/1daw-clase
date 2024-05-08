@@ -3,18 +3,40 @@ $color-fondo: #181D3E;
 $color-fondo-navbar: #5B6D8A;
 $color-letra-titulos: #F2D750;
 $color-letra-navbar:#F2D750;
+$color-background-button-search: #F27E9D;
+$color-text-button-search: #F2D750;
+$border-radius: 0.5em;
 
 $theme-colors:(
     "primary":$color-fondo,
     "nav":$color-fondo-navbar
 );
 
+$position-values: (
+  0: 0,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  35: 35%,
+  40: 40%,
+  50: 50%,
+  100: 100%
+);
+
+$sizes-values: (
+    10: 10%
+);
+
+
 @import "../bootstrap-5.3.3/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
 
-
+$font-title: Jaro;
 
 body{
     background-color: $color-fondo;
+    margin-left: 5em;
+    margin-right: 5em;
     }
 
 h3{
@@ -25,10 +47,10 @@ h3{
 .nav-item{
     color: $color-letra-navbar;
 }
-$border-radius:2rem;
+
 
 .img-navbar{
-    width: 100px;
+    width: 30em;
 }
 
 .footer {
@@ -36,11 +58,51 @@ $border-radius:2rem;
     text-align: center;
     background-color: rgba(66, 70, 96);
     position: relative;
+    width: 100%;
 }
 
 .img_footer {
     margin-left: 2em;
     margin-right: 2em;
     width: 1.5vw;
+}
+
+.color-button{
+    background-color: $color-background-button-search;
+    color: $color-text-button-search;
+}
+
+.section-index{
+    background-color: #3859A4;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    margin-top: 0.5em;
+    margin: 2em;
+    height: 18em;
+}
+
+.section-index p{
+    background-color: #F27E9D;
+    border-bottom-right-radius: $border-radius;
+    color: $color-fondo;
+    width: 20em;
+    font-family: $font-title;
+}
+
+.imagen-index{
+    margin-left: 2em;
+    height: 150px;
+}
+
+.tututu{
+    display: inline-block;
+}
+
+.imagensita{
+    display: block;
+}
+.porqueria{
+    display: block;
 }
 

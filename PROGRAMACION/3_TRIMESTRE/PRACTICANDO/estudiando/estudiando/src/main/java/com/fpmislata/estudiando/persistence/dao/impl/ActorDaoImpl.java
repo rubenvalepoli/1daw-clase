@@ -4,7 +4,6 @@ import com.fpmislata.estudiando.persistence.bd.RawSql;
 import com.fpmislata.estudiando.persistence.dao.ActorDao;
 import com.fpmislata.estudiando.persistence.dao.entity.ActorEntity;
 import com.fpmislata.estudiando.persistence.dao.mapper.ActorEntityMapper;
-import com.fpmislata.estudiando.persistence.repository.mapper.ActorMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,16 +44,33 @@ public class ActorDaoImpl implements ActorDao {
 
 
     @Override
-    public ActorEntity findById(Integer id) {
-        ActorEntity actorEntity;
-        List<ActorEntity> actorEntityList = List.of();
-        ResultSet resultSet = RawSql.select("SELECT * FROM actor;",null);
-        try {
+    public List<ActorEntity> findByMovieId(Integer movieId) throws SQLException {
+        //ActorEntity actorEntity;
+        //List<ActorEntity> actorEntityList = List.of();
+        ResultSet resultSet = RawSql.select("""
+            SELECT a.* FROM actor a
+            INNER JOIN characterMovie cm
+            ON a.id = cm.actorId
+            and cm.movieId = ?
+        """, List.of(movieId));
+        /*try {
             resultSet.next();
         } catch (SQLException e){
             throw new RuntimeException(e);
-        }
-        actorEntity = ActorEntityMapper.toActorEntity(resultSet);
-        return null;
+        }*/
+        return ActorEntityMapper.toActorEntityList(resultSet);
+    }
+
+    @Override
+    public ActorEntity findByCharacterId(Integer characterId) throws SQLException {
+        String sql = """
+                    SELECT a.* FROM actor a
+                    INNER JOIN characterMovie cm
+                    ON cm.actorId = a.id
+                    and cm.id = ?
+                """;
+        ResultSet resultSet = RawSql.select(sql, List.of(characterId));
+        resultSet.next();
+        return ActorEntityMapper.toActorEntity(resultSet);
     }
 }

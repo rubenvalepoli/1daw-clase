@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.sql.SQLException;
+
 @RequestMapping("/movies")
 @Controller
 public class MovieController {
@@ -26,7 +28,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public String findById(Model model, @PathVariable int id){
+    public String findById(Model model, @PathVariable int id) throws SQLException {
         model.addAttribute("movie",movieService.findById(id));
         return "movieDetail";
     }

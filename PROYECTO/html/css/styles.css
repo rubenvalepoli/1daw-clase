@@ -4,64 +4,7 @@
  * Copyright 2011-2024 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
-body,html{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: #e74c3c !important;
-    }
-
-    .search{
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 70px;
-    background-color: #fff;
-    border-radius: 40px;
-    padding: 10px;
-    }
-
-    .search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    margin-top:5px;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-    }
-
-    .search .search_input{
-    padding: 0 10px;
-    width: 550px;
-    caret-color:red;
-    transition: width 0.4s linear;
-    }
-    
-    .search:hover > .search_icon{
-    background: red;
-    color: #fff;
-    }
-
-    .search_icon{
-    height: 50px;
-    width: 50px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color:white;
-    background-color:black;
-    }
-    
-a:link{
-    text-decoration:none;
-}    
-
+@import url("https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -151,7 +94,7 @@ a:link{
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375rem;
+  --bs-border-radius: 0.5em;
   --bs-border-radius-sm: 0.25rem;
   --bs-border-radius-lg: 0.5rem;
   --bs-border-radius-xl: 1rem;
@@ -5006,7 +4949,7 @@ textarea.form-control-lg {
   color: var(--bs-btn-close-color);
   background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
   border: 0;
-  border-radius: 0.375rem;
+  border-radius: 0.5em;
   opacity: var(--bs-btn-close-opacity);
 }
 .btn-close:hover {
@@ -6927,6 +6870,26 @@ textarea.form-control-lg {
   top: 0 !important;
 }
 
+.top-20 {
+  top: 20% !important;
+}
+
+.top-25 {
+  top: 25% !important;
+}
+
+.top-30 {
+  top: 30% !important;
+}
+
+.top-35 {
+  top: 35% !important;
+}
+
+.top-40 {
+  top: 40% !important;
+}
+
 .top-50 {
   top: 50% !important;
 }
@@ -6937,6 +6900,26 @@ textarea.form-control-lg {
 
 .bottom-0 {
   bottom: 0 !important;
+}
+
+.bottom-20 {
+  bottom: 20% !important;
+}
+
+.bottom-25 {
+  bottom: 25% !important;
+}
+
+.bottom-30 {
+  bottom: 30% !important;
+}
+
+.bottom-35 {
+  bottom: 35% !important;
+}
+
+.bottom-40 {
+  bottom: 40% !important;
 }
 
 .bottom-50 {
@@ -6951,6 +6934,26 @@ textarea.form-control-lg {
   left: 0 !important;
 }
 
+.start-20 {
+  left: 20% !important;
+}
+
+.start-25 {
+  left: 25% !important;
+}
+
+.start-30 {
+  left: 30% !important;
+}
+
+.start-35 {
+  left: 35% !important;
+}
+
+.start-40 {
+  left: 40% !important;
+}
+
 .start-50 {
   left: 50% !important;
 }
@@ -6961,6 +6964,26 @@ textarea.form-control-lg {
 
 .end-0 {
   right: 0 !important;
+}
+
+.end-20 {
+  right: 20% !important;
+}
+
+.end-25 {
+  right: 25% !important;
+}
+
+.end-30 {
+  right: 30% !important;
+}
+
+.end-35 {
+  right: 35% !important;
+}
+
+.end-40 {
+  right: 40% !important;
 }
 
 .end-50 {
@@ -11340,6 +11363,8 @@ textarea.form-control-lg {
 }
 body {
   background-color: #181D3E;
+  margin-left: 5em;
+  margin-right: 5em;
 }
 
 h3, .h3 {
@@ -11351,7 +11376,7 @@ h3, .h3 {
 }
 
 .img-navbar {
-  width: 100px;
+  width: 30em;
 }
 
 .footer {
@@ -11359,12 +11384,53 @@ h3, .h3 {
   text-align: center;
   background-color: rgb(66, 70, 96);
   position: relative;
+  width: 100%;
 }
 
 .img_footer {
   margin-left: 2em;
   margin-right: 2em;
   width: 1.5vw;
+}
+
+.color-button {
+  background-color: #F27E9D;
+  color: #F2D750;
+}
+
+.section-index {
+  background-color: #3859A4;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  margin-top: 0.5em;
+  margin: 2em;
+  height: 18em;
+}
+
+.section-index p {
+  background-color: #F27E9D;
+  border-bottom-right-radius: 0.5em;
+  color: #181D3E;
+  width: 20em;
+  font-family: Jaro;
+}
+
+.imagen-index {
+  margin-left: 2em;
+  height: 150px;
+}
+
+.tututu {
+  display: inline-block;
+}
+
+.imagensita {
+  display: block;
+}
+
+.porqueria {
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -10,18 +10,16 @@ import com.fpmislata.estudiando.persistence.dao.CharacterMovieDao;
 import com.fpmislata.estudiando.persistence.dao.DirectorDao;
 import com.fpmislata.estudiando.persistence.dao.MovieDao;
 import com.fpmislata.estudiando.persistence.dao.entity.CharacterMovieEntity;
-import com.fpmislata.estudiando.persistence.dao.entity.DirectorEntity;
 import com.fpmislata.estudiando.persistence.dao.entity.MovieEntity;
 import com.fpmislata.estudiando.persistence.dao.impl.ActorDaoImpl;
 import com.fpmislata.estudiando.persistence.dao.impl.CharacterMovieDaoImpl;
-import com.fpmislata.estudiando.persistence.dao.impl.DirectorDaoImpl;
-import com.fpmislata.estudiando.persistence.dao.impl.MovieDaoImpl;
 import com.fpmislata.estudiando.persistence.repository.MovieRepository;
 import com.fpmislata.estudiando.persistence.repository.mapper.ActorMapper;
 import com.fpmislata.estudiando.persistence.repository.mapper.CharacterMovieMapper;
 import com.fpmislata.estudiando.persistence.repository.mapper.DirectorMapper;
 import com.fpmislata.estudiando.persistence.repository.mapper.MovieMapper;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,15 +48,16 @@ public class MovieRepositoryImpl implements MovieRepository {
     }
 
     @Override
-    public Movie findById(int id){
+    public Movie findById(int id) throws SQLException {
         MovieEntity movieEntity = movieDao.findById(id);
         Director director = DirectorMapper.toDirector(directorDao.findById(movieEntity.getId_director()));
+
         List<CharacterMovieEntity>characterMovieEntityList = characterMovieDao.findByMovie(id);
         List<CharacterMovie> characterMovieList = new ArrayList<>();
 
-        for (CharacterMovieEntity characterMovieEntity1 : characterMovieEntityList){
-            Actor actor = ActorMapper.toActor(actorDao.findById(characterMovieEntity1.getActorId()));
-            CharacterMovie characterMovie = CharacterMovieMapper.toCharacterMovie(characterMovieEntity1);
+        for (CharacterMovieEntity characterMovieEntity : characterMovieEntityList){
+            Actor actor = ActorMapper.toActor(actorDao.findByCharacterId(characterMovieEntity.getActorId()));
+            CharacterMovie characterMovie = CharacterMovieMapper.toCharacterMovie(characterMovieEntity);
             characterMovie.setActor(actor);
             characterMovieList.add(characterMovie);
        }

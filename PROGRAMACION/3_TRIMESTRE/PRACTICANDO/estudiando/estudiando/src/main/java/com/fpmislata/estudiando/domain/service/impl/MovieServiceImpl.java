@@ -8,6 +8,7 @@ import com.fpmislata.estudiando.persistence.repository.DirectorRepository;
 import com.fpmislata.estudiando.persistence.repository.MovieRepository;
 import com.fpmislata.estudiando.persistence.repository.impl.MovieRepositoryImpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class MovieServiceImpl implements MovieService {
@@ -24,7 +25,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Movie findById(int id){
+    public Movie findById(int id) throws SQLException {
         return movieRepository.findById(id);
     }
 

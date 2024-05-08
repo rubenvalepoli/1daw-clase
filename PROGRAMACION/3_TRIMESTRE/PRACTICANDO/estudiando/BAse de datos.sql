@@ -1,3 +1,4 @@
+drop database movie;
 create database  movie;
 use movie;
 
@@ -125,4 +126,7 @@ INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (28, 10,
 INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (29, 10, 17, 'Henry Jones');
 INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (30, 10, 26, 'Elsa Schneider');
 
-
+SELECT a.* FROM actor a
+    INNER JOIN characterMovie cm
+    ON cm.actorId = a.id
+    and cm.id = 1
