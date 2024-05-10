@@ -132,44 +132,49 @@
 
     <!--FORMULARIO COMENTARIOS-->
     <section>
-        <form>
-            <div class="form-group">
+        <form class="row formulario">
+            <div class="col-6">
                 <label for="InputEmail">Email address</label>
-                <input type="email" class="form-control" id="InputEmail" placeholder="Enter email">
+                <input type="email" class="form-control mt-2" id="InputEmail" placeholder="Enter email">
             </div>
 
+            <div class="col-7">
+            <div class="row my-3  mx-5">
 
-
-            <p>Has jugado a este Juego?</p>
-            <div class="form-check">
-
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes" checked>
-                <label class="form-check-label" for="flexRadio">Yes</label>
-            </div>
-
-
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="not">
-                    <label class="form-check-label" for="flexRadio">Not</label>
-
+                <div class="col-7">
+                    <div class="form-group">
+                        <label>¿Has jugado a este juego?</label><br>
+                        <div class="row mt-2">
+                            <div class="col-2">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes" checked>
+                                <label class="form-check-label " for="flexRadio">Yes</label>
+                            </div>
+                            <div class="col-2">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="not">
+                                <label class="form-check-label" for="flexRadio">No</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Que te ha parecido el juego?</option>
-                        <option>Muy bueno</option>
-                        <option>Bueno</option>
-                        <option>Malo</option>
-                        
-                    </select>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-select mt-1">
+                            <option selected>Que te ha parecido el juego?</option>
+                            <option>Muy bueno</option>
+                            <option>Bueno</option>
+                            <option>Malo</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+</div>
 
-            <div class="form-check">
-            <label for="exampleFormControlTextarea1">Comments</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+            <div class="col-6">
+                <label for="exampleFormControlTextarea1">Comments</label>
+                <textarea class="form-control mt-2" id="exampleFormControlTextarea1" rows="3"></textarea>
 
             </div>
 
