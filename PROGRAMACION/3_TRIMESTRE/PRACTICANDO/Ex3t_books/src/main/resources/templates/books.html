@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Movies</title>
+</head>
+
+<body>
+    <h1>All Movies</h1>
+ <!--   <nav>
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/books}">View All Movies</a>
+        <a th:href="@{/books/add}">Create New Movie</a>
+        <a th:href="@{/books/search}">Search Movie</a>
+    </nav>-->
+<!--    <ul>
+        <li th:each="books : ${bookList}">
+            <a th:href="@{/books/{id}(id=${books.id})}" th:text="${books.title}">Book Title</a>
+        </li>
+    </ul>-->
+    <ul>
+        <a th:each="book : ${bookList}" th:href="@{${'/book/' + book.id}}">
+            <li th:text="|${book.name} + ${book.editorial.id}|">Texto por defecto</li>
+        </a>
+    </ul>
+
+</body>
+
+</html>

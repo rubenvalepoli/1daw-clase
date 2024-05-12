@@ -6,12 +6,12 @@ public class Car {
     private int carid;
     private String marca;
     private String modelo;
+    private String matricula;
+    private Cliente propietario;
 
     public Car() {
     }
 
-    private String matricula;
-    private Cliente propietario;
 
     public Car(int carid, String marca, String modelo, String matricula, Cliente propietario) {
         this.carid = carid;

@@ -1,7 +1,7 @@
 package com.fpmislata.ex_3t_coches.persistence.repository;
 
 import com.fpmislata.ex_3t_coches.domain.entity.Concesionario;
-import com.fpmislata.ex_3t_coches.persistence.Dao.entity.ConcesionarioEntity;
+
 
 import java.util.List;
 

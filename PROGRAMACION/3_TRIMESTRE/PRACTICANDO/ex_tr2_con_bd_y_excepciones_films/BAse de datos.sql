@@ -29,17 +29,13 @@ create table movie(
 
 create table characterMovie(
 	id integer primary key,
-    movieId int not null,
+    movieId int,
     actorId int not null,
     charactername varchar(200) not null,
 	foreign key (movieId) references movie (id),
 	foreign key (actorId) references actor (id)
 );
 
-SELECT ch.* FROM characterMovie ch
-INNER JOIN movie m
-ON ch.movieId = m.id
-and m.id = 2;
 
 -- INSERCONES
 
@@ -130,7 +126,10 @@ INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (28, 10,
 INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (29, 10, 17, 'Henry Jones');
 INSERT INTO characterMovie (id, movieId, actorId, charactername) VALUES (30, 10, 26, 'Elsa Schneider');
 
-SELECT a.* FROM actor a
+
+
+
+/*SELECT a.* FROM actor a
     INNER JOIN characterMovie cm
     ON cm.actorId = a.id
     and cm.id = 1;
@@ -144,6 +143,25 @@ and m.id = 2;
 
 
 
+SELECT ch.* FROM characterMovie ch
+INNER JOIN movie m
+ON ch.movieId = m.id
+and m.id = 2;
 
 
-SELECT id , name, year, id_director FROM movie;
+DELETE movie, characterMovie 
+FROM movie 
+LEFT JOIN characterMovie ON movie.id = characterMovie.movieId 
+WHERE movie.id = 2;
+
+DELETE cm, m
+FROM characterMovie cm
+JOIN movie m ON cm.movieId = m.id
+WHERE cm.movieId = 3;
+
+
+
+DELETE from characterMovie where movieId = 1;
+delete from movie where id=1;
+
+SELECT id , name, year, id_director FROM movie; */
