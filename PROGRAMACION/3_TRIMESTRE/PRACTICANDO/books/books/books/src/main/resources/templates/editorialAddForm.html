@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir</title>
+</head>
+<body>
+<form action="#" th:action="@{/editorials}" th:object="${editorial}" method="post">
+    <p>Id de la editorial:<br /><input type="number" th:field="*{id}"></p>
+    <p>Nombre de la editorial:<br /><input type="text" th:field="*{name}"></p>
+    <br /><br />
+    <input type="submit" id="enviar" name="enviar" value="Enviar">
+</form>
+</body>
+</html>

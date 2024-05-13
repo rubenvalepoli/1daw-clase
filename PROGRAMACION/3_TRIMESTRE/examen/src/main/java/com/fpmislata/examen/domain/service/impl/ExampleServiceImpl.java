@@ -1,4 +1,6 @@
 package com.fpmislata.examen.domain.service.impl;
 
-public class ExampleServiceImpl {
+import com.fpmislata.examen.domain.service.ExampleService;
+
+public class ExampleServiceImpl implements ExampleService {
 }

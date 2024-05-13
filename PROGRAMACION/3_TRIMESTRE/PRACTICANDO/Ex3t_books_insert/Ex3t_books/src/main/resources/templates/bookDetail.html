@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Detalles de un libro</h1>
+
+<nav>
+    <a th:href="@{/home}">Home</a>
+    <a th:href="@{/books}">View All Books</a>
+    <a th:href="@{/books/add}">Create New Book</a>
+    <a th:href="@{/books/search}">Search Book</a>
+</nav>
+
+<h1 th:text="${book.title}">Book Title</h1>
+<p><strong>Editorial:</strong> <span th:text="${book.editorial.name}">Director Name</span></p>
+<p><strong>Year:</strong> <span th:text="${book.year}">Year</span></p>
+<p><strong>Author:</strong> <span th:text="${book.author.name}">Author</span></p>
+<p><strong>Characters:</strong></p>
+<ul>
+    <li th:each="character:${book.charactersList}" th:text="${character.name}"></li>
+</ul>
+<form th:action="@{'/books/'+${id}}" th:method="delete">
+    <button type="submit">Borrar libro</button>
+</form>
+</body>
+</html>

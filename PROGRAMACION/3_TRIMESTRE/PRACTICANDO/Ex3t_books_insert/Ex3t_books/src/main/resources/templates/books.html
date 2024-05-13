@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books</title>
+</head>
+
+<body>
+    <h1>All Books</h1>
+    <nav>
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/books}">View All Books</a>
+        <a th:href="@{/books/add}">Create New Book</a>
+        <a th:href="@{/books/search}">Search Book</a>
+    </nav>
+    <h1>Listado de Libros</h1>
+
+    <ul>
+        <a th:each="books : ${bookList}" th:href="@{${'/books/' + books.id}}">
+            <li th:text="|${books.title} (${books.editorial.name})|">Texto por defecto</li>
+        </a>
+    </ul>
+</body>
+
+</html>

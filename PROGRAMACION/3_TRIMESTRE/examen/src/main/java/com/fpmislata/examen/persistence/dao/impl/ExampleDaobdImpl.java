@@ -1,4 +1,6 @@
 package com.fpmislata.examen.persistence.dao.impl;
 
-public class ExampleDaobdImpl {
+import com.fpmislata.examen.persistence.dao.ExampleDao;
+
+public class ExampleDaobdImpl implements ExampleDao {
 }

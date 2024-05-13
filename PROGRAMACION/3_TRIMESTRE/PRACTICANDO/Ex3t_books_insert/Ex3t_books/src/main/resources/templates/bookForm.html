@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Form</title>
+</head>
+<body>
+<h1>Formulario para añadir libros</h1>
+<form id="formulario" action="#" th:action="@{/books}" th:object="${book}" method="post">
+    <p>Titulo de la pelicula<br /><input type="text" th:field="*{title}" maxlength="50"></p><br />
+    <p>Año de la pelicula<br /><input type="number" th:field="*{year}" maxlength="20"></p><br />
+
+    <p>Author del libro</p>
+    <select th:field="*{author.id}" name="author_id">
+        <option th:each="author:${authorList}" th:value="${author.id}" th:text="${author.name}"></option>
+    </select>
+    <br>
+    <p>Editorial del libro</p>
+    <select th:field="*{editorial.id}" name="author_id">
+        <option th:each="editorial:${editorialList}" th:value="${editorial.id}" th:text="${editorial.name}"></option>
+    </select>
+    <input type="submit" id="enviar" name="enviar" value=" Enviar ">
+    <input type="reset" id="cancel" name="cancel" value=" Borrar "><br>
+</form>
+</body>
+</html>

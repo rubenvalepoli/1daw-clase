@@ -1,4 +1,6 @@
 package com.fpmislata.examen.persistence.repositoy.impl;
 
-public class ExamenRepositoryImpl {
+import com.fpmislata.examen.persistence.repositoy.ExampleRepository;
+
+public class ExamenRepositoryImpl implements ExampleRepository {
 }
