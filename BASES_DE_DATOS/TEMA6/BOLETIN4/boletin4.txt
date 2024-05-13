@@ -1,0 +1,51 @@
+-- EJERCICIO 1. Crea un trigger que se active después de insertar un nuevo cliente en la tabla 
+-- Clientes. El trigger debe registrar la acción de inserción en una tabla llamada “auditoría de clientes”. Esa tabla tiene los siguientes campos:
+-- auditoria_clientes(id_auditoria number, id_cliente number, accion varchar2(30), fecha date )
+
+
+		create or replace trigger t_auditoria after insert on clientes
+		for each row
+		begin
+			insert into auditoria_clientes(1,2,'Insercion en cliente', now());
+
+		end;
+
+
+
+-- EJERCICIO 2. Crea un trigger que se active después de insertar o actualizar un detalle de
+-- pedido en la tabla Detalles_pedido.
+-- El trigger debe actualizar automáticamente el campo cantidad_en_stock del producto
+-- correspondiente en la tabla Productos basado en la cantidad vendida en el detalle de pedido.
+
+		create or replace trigger t_actualizar_cantidad after insert or update on detalles_pedido
+		for each row
+		begin
+			update Productos set cantidad_en_stock = cantidad_en_stock -:NEW.cantidad
+			where codigo_producto = :new.codigo_producto;
+
+		end;
+
+
+
+-- EJERCICIO 3. Crea un trigger que se active después de insertar o actualizar un detalle de
+-- pedido en la tabla Detalles_pedido. El trigger debe calcular automáticamente el total de un
+-- pedido sumando el precio total de todos los detalles de pedido asociados al pedido y
+-- actualizar el campo total en la tabla Pedidos.
+
+
+
+
+
+-- EJERCICIO 4. Crea un trigger que se active después de insertar o actualizar un detalle de
+-- pedido en la tabla Detalles_pedido. El trigger debe verificar si todos los productos de un
+-- pedido han sido entregados y, si es así, actualizar automáticamente el estado del pedido a
+-- "Entregado" en la tabla Pedidos.
+
+
+
+
+
+-- EJERCICIO 5. Crea un trigger que, después de insertar un nuevo pedido en la tabla "Pedidos",
+-- actualice la cantidad en stock de todos los productos asociados a ese pedido en la tabla
+-- "Detalles_pedido". Utiliza un cursor para recorrer los detalles del pedido y actualizar la
+-- cantidad en stock de cada producto
