@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del videojuego</title>
+</head>
+<body>
+<h1 th:text="${game.title}"></h1>
+<p th:text="|Año: ${game.release_year}|"></p>
+<p th:text="|Director: ${game.director.name}|"></p>
+<p>Personajes:</p>
+<ul>
+    <li th:each="characterVideogame : ${game.characterVideogameList}" th:text="|${characterVideogame.name}|"></li>
+</ul>
+</body>
+</html>

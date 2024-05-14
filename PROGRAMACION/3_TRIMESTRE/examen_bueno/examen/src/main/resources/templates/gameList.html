@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de videojuegos</title>
+</head>
+<body>
+
+
+<h1>Listado de videojuegos</h1>
+
+<ul>
+    <a th:each="game : ${gameList}" th:href="@{${'/games/' + game.game_code}}">
+        <li th:text="|${game.title}|">Texto por defecto</li>
+    </a>
+</ul>
+
+<form th:action="|/games|" th:method="post">
+    <button type="submit">Añadir</button>
+</form>
+
+
+</body>
+</html>

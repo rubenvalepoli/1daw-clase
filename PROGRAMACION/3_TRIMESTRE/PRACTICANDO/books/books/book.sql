@@ -32,6 +32,7 @@ CREATE TABLE characters(
 );
 
 
+
 CREATE TABLE author_book(
     author_id INT NOT NULL auto_increment,
     book_id INT NOT NULL,
@@ -110,4 +111,6 @@ INSERT INTO author_book (author_id, book_id) VALUES (8, 7);
 INSERT INTO author_book (author_id, book_id) VALUES (9, 8);
 INSERT INTO author_book (author_id, book_id) VALUES (10, 9);
 INSERT INTO author_book (author_id, book_id) VALUES (11, 10);
+                select b.*, c.* from book b inner join characters c on b.id = c.book_id where b.id = 5;
+                select c.id, c.name, b.id, b.name, b.year from characters c Inner Join book b on (b.id = c.book_id) where b.id=?;
 

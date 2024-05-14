@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${book.name}"></h1>
+<p th:text="|Año: ${book.year}|"></p>
+<!--<ul>
+    <li class="CharacterMovieList" th:each="characterMovie : ${book.characterMovieList}" th:text="|${characterMovie.name}|"></li>
+</ul>-->
+
+<form th:action="|/movies/${movie.id}|" th:method="post">
+    <button type="submit">Borrar</button>
+</form>
+
+</body>
+</html>
