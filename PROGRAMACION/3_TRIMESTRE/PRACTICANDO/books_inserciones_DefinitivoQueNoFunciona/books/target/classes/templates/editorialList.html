@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Editoriales</title>
+</head>
+<body>
+
+<h1>Listado de editoriales</h1>
+
+<ul>
+    <a th:each="editorial : ${editorialList}" th:href="@{${'/editorials/' + editorial.id}}">
+        <li th:text="|${editorial.name}|">Texto por defecto</li>
+    </a>
+</ul>
+
+<a th:href="@{/editorials/add}">Añadir una editorial</a>
+</body>
+</html>
