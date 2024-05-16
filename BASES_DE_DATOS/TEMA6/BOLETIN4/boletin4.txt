@@ -32,7 +32,22 @@
 -- pedido sumando el precio total de todos los detalles de pedido asociados al pedido y
 -- actualizar el campo total en la tabla Pedidos.
 
+		CREATE OR REPLACE TRIGGER calcular_total AFTER insert or update ON detalles_pedido
+		for each row
+		declare
+			v_total number;
+		begin
 
+			select (cantidad*precio_unidad) into v_total
+			from detalles_pedido
+			where codigo_pedido= :new.codigo_pedido;
+
+			update pedidos
+			set total = v_total
+			where codigo_pedido=:new.codigo_pedido;
+
+		end
+		/
 
 
 
@@ -41,11 +56,79 @@
 -- pedido han sido entregados y, si es así, actualizar automáticamente el estado del pedido a
 -- "Entregado" en la tabla Pedidos.
 
+		CREATE OR REPLACE TRIGGER t_actualizar_stock AFTER insert or update ON detalles_pedido
+		for each row
+		declare
+			v_total number;
+			v_total_entregado number;
 
+		begin
+
+			select count(*) into v_total
+			from detalles_pedido
+			where codigo_pedido= :new.codigo_pedido;
+
+			select count(*) into v_total_entregado
+			from detalles_pedido
+			where codigo_pedido= :new.codigo_pedido and entregado = true;
+
+			if v_total = v_total_entregado then
+			update pedidos
+			set estoado = 'ENtregado'
+			where codigo_pedido=:new.codigo_pedido;
+			end if;
+			end;
+		/
 
 
 
 -- EJERCICIO 5. Crea un trigger que, después de insertar un nuevo pedido en la tabla "Pedidos",
 -- actualice la cantidad en stock de todos los productos asociados a ese pedido en la tabla
 -- "Detalles_pedido". Utiliza un cursor para recorrer los detalles del pedido y actualizar la
--- cantidad en stock de cada producto
+-- cantidad en stock de cada producto.
+
+
+		CREATE OR REPLACE TRIGGER t_actualizar_stock AFTER insert or update ON detalles_pedido
+		for each row
+		declare
+			cursor c_detalle_pedido is
+			select *
+			from detalles_pedido
+			where codigo_pedido:=new.codigo_pedido;
+
+		begin
+
+			for v_detalle in c_detalle_pedido loop
+				update productos
+				set cantidad_en_stock = cantidad_en_stock - v_detalle.cantidad
+			where codigo_producto = v_detalle.codigo_producto;
+		end loop;
+		end;
+
+
+-- EL EJERCICIO 5 CON EXCEPCIONES;
+
+
+
+		CREATE OR REPLACE TRIGGER t_actualizar_stock AFTER insert or update ON detalles_pedido
+		for each row
+		declare
+			cursor c_detalle_pedido is
+			select *
+			from detalles_pedido
+			where codigo_pedido=:new.codigo_pedido;
+
+		begin
+
+			for v_detalle in c_detalle_pedido loop
+				update productos
+				set cantidad_en_stock = cantidad_en_stock - v_detalle.cantidad
+			where codigo_producto = v_detalle.codigo_producto;
+		end loop;
+
+		exception
+
+			when no_data_found then 
+			dbms_output.put_line('defefewfiefhiuih');
+		end;
+
