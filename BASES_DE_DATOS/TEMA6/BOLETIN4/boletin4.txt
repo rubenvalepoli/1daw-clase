@@ -17,13 +17,12 @@
 -- El trigger debe actualizar automáticamente el campo cantidad_en_stock del producto
 -- correspondiente en la tabla Productos basado en la cantidad vendida en el detalle de pedido.
 
-		create or replace trigger t_actualizar_cantidad after insert or update on detalles_pedido
-		for each row
-		begin
-			update Productos set cantidad_en_stock = cantidad_en_stock -:NEW.cantidad
-			where codigo_producto = :new.codigo_producto;
-
-		end;
+	CREATE OR REPLACE TRIGGER t_total AFTER insert or update ON detalles_pedido
+	FOR EACH ROW
+	BEGIN
+		update Productos set cantidad_en_stock = cantidad_en_stock := new.cantidad
+		where codigo_producto = new.codigo_producto;
+	END;
 
 
 

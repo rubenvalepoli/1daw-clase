@@ -115,8 +115,25 @@ END;
 -- EJERCICIO 5. Escribe un cursor que cuente el número de empleados y muestre el total.
 
 
-
-
+		CREATE OR REPLACE PROCEDURE num_empleados IS
+		CURSOR c_empleado IS
+			SELECT nombre FROM empleados;
+			v_nombre c_empleado.nombre%TYPE;
+			v_num_empleados NUMBER :=0;
+		BEGIN
+		OPEN c_empleado;
+			LOOP
+				FETCH c_empleado INTO v_nombre;
+				EXIT WHEN c_empleado%NOTFOUND;
+				v_num_empleados := v_num_empleados +1;
+			END LOOP;
+		CLOSE c_empleado;
+			dbms_output.put_line('Numero total empleados: ' || v_num_empleados);
+			
+		EXCEPTION
+			WHEN NO_DATA_FOUND THEN
+			dbms_output.put_line( 'No hay datos en la tabla' );
+		END;
 
 
 
