@@ -1,0 +1,72 @@
+EJERCICIO 1. Crea un procedimiento para insertar un nuevo empleado. Este procedimiento
+recibirá como parámetros el nombre, salario y departamento del nuevo empleado y lo
+insertará en la tabla “empleados”.
+
+		CREATE OR REPLACE PROCEDURE p_nuevo_empleado (
+			nombre varchar2,
+			salario number,
+			departamento_id varchar
+		)
+		is
+		begin
+			insert into empleados (nombre,salario,departamento_id)
+			values(nombre,salario,departamento_id);
+		end;
+
+EJERCICIO 2. Crea un procedimiento para actualizar el salario de un empleado: Este
+procedimiento recibirá como parámetros el ID del empleado y el nuevo salario, y actualizará el
+salario del empleado correspondiente en la tabla empleados.
+
+		CREATE OR REPLACE PROCEDURE p_actualizar (
+			id_empleado number,
+			salario_nuevo number
+		)
+		is
+		begin
+			update empleados set salario = salario_nuevo where id = id_empleado;
+		end;
+
+EJERCICIO 3. Crear un procedimiento para calcular el salario promedio de un departamento:
+Este procedimiento recibirá como parámetro el ID del departamento y calculará el salario
+promedio de todos los empleados en ese departamento.
+
+		CREATE OR REPLACE PROCEDURE p_promedio (
+			id_departamento number,
+			salario number
+		)
+		is
+			v_promedio number;
+		begin
+			select avg(salario) into v_promedio from empleados where departamento_id = id_departamento;
+		end;
+		
+		
+		
+EJERCICIO 4. Crear un procedimiento para eliminar un empleado: Este procedimiento recibirá
+como parámetro el ID del empleado y lo eliminará de la tabla empleados
+
+
+		CREATE OR REPLACE PROCEDURE p_eliminar(
+			id_empleado number
+		)
+		is
+		begin
+			delete from empleados where id=id_empleado;
+		end;
+		
+		
+	-- EL mismo pero con excepciones
+
+		CREATE OR REPLACE PROCEDURE p_eliminar(
+
+			id_empleado number
+		)
+		is
+		begin
+			delete from empleados where id=id_empleado;
+		exception
+			WHEN no_data_found then 
+			DBMS_OUTPUT.PUT_LINE('No existe el empleado');
+			WHEN others then 
+				DBMS_OUTPUT.PUT_LINE('error');
+		end;

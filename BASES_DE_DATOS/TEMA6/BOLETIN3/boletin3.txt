@@ -28,31 +28,21 @@ END;
 -- EJERCICIO 2. Escribe un cursor que seleccione empleados de un departamento específico que
 -- se le pase como parámetro y muestre su nombre y salario.
 
-CREATE PROCEDURE MostrarEmpleadosPorDepartamento (@Departamento VARCHAR(50))
-AS
+CREATE OR REPLACE PROCEDURE salario_empleados(departamento NUMBER) IS
+	CURSOR c_empleado(p_departamento NUMBER) IS
+	SELECT nombre, salario FROM empleados WHERE
+	departamento_id=p_departamento;
+	v_nombre c_empleado.nombre%TYPE;
+	v_salario c_empleado.salario%TYPE;
 BEGIN
-    DECLARE @NombreEmpleado VARCHAR(100)
-    DECLARE @SalarioEmpleado DECIMAL(10, 2)
-
-    DECLARE EmpleadosCursor CURSOR FOR
-    SELECT Nombre, Salario
-    FROM Empleados
-    WHERE Departamento = @Departamento;
-
-    OPEN EmpleadosCursor;
-
-    FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
-
-    WHILE @@FETCH_STATUS = 0
-    BEGIN
-        PRINT 'Nombre: ' + @NombreEmpleado + ', Salario: ' + CAST(@SalarioEmpleado AS VARCHAR(20));
-        FETCH NEXT FROM EmpleadosCursor INTO @NombreEmpleado, @SalarioEmpleado;
-    END
-
-    CLOSE EmpleadosCursor;
-    DEALLOCATE EmpleadosCursor;
-END
-
+	OPEN c_empleado(1);
+		LOOP
+			FETCH c_empleado INTO v_nombre,v_salario;
+			EXIT WHEN c_empleado%NOTFOUND;
+			dbms_output.put_line('Empleado: ' || v_nombre ||' con numero de departamento ' || v_salario);
+		END LOOP;
+	CLOSE c_empleado;
+END;
 
 
 

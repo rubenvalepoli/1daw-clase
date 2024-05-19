@@ -1,0 +1,110 @@
+
+
+-- INSERCIONES TABLA PEDIDOS QUE FUNCIONAN 
+
+INSERT INTO Pedidos (codigo_pedido, fecha_pedido, fecha_entrega, estado, total) VALUES (1, TO_DATE('2024-04-01', 'YYYY-MM-DD'), TO_DATE('2024-04-05', 'YYYY-MM-DD'), 'Pendiente', 0.00);
+INSERT INTO Pedidos (codigo_pedido, fecha_pedido, fecha_entrega, estado, total) VALUES (2, TO_DATE('2024-04-02', 'YYYY-MM-DD'), TO_DATE('2024-04-06', 'YYYY-MM-DD'), 'En Proceso', 0.00);
+
+
+-- TABLA DETALLES DE PEDIDO QUE FUNCIONA
+	CREATE TABLE Detalles_pedido (
+		codigo_pedido INT,
+		codigo_producto VARCHAR2(15),
+		cantidad INT,
+		precio_unidad DECIMAL(10,2),
+		entregado NUMBER(1) DEFAULT 1, -- 1 para true, 0 para false
+		PRIMARY KEY (codigo_pedido, codigo_producto),
+		FOREIGN KEY (codigo_pedido) REFERENCES Pedidos(codigo_pedido),
+		FOREIGN KEY (codigo_producto) REFERENCES Productos(codigo_producto)
+	);
+
+-- INSERCIONES DE ESTA TABLA
+	INSERT INTO Detalles_pedido (codigo_pedido, codigo_producto, cantidad, precio_unidad, entregado) VALUES (1, 'P1', 2, 10.99, 0);
+	INSERT INTO Detalles_pedido (codigo_pedido, codigo_producto, cantidad, precio_unidad, entregado) VALUES (1, 'P2', 3, 20.50, 0);
+	INSERT INTO Detalles_pedido (codigo_pedido, codigo_producto, cantidad, precio_unidad, entregado) VALUES (2, 'P1', 1, 10.99, 0);
+
+
+
+-- EJERCICIO 1. Crea un trigger que se active después de insertar un nuevo cliente en la tabla
+Clientes. El trigger debe registrar la acción de inserción en una tabla llamada “auditoría de
+clientes”. Esa tabla tiene los siguientes campos:
+auditoria_clientes(id_auditoria number, id_cliente number, accion varchar2(30), fecha date )
+
+		CREATE OR REPLACE TRIGGER insert_cliente AFTER insert ON clientes
+		FOR EACH ROW
+		begin
+			insert into auditoria_clientes (id_auditoria, id_cliente, accion, fecha) values (1,1,'pepepepe','2005-12-12');
+		end;
+
+
+-- EJERCICIO 2. Crea un trigger que se active después de insertar o actualizar un detalle de
+pedido en la tabla Detalles_pedido.
+El trigger debe actualizar automáticamente el campo cantidad_en_stock del producto
+correspondiente en la tabla Productos basado en la cantidad vendida en el detalle de pedido.
+
+
+		CREATE OR REPLACE TRIGGER t_total AFTER insert or update ON detalles_pedido
+		FOR EACH ROW
+		BEGIN
+			update Productos set cantidad_en_stock = cantidad_en_stock - :new.cantidad
+			where codigo_producto =:new.codigo_producto;
+		END;
+
+
+-- EJERCICIO 3. Crea un trigger que se active después de insertar o actualizar un detalle de
+pedido en la tabla Detalles_pedido. El trigger debe calcular automáticamente el total de un
+pedido sumando el precio total de todos los detalles de pedido asociados al pedido y
+actualizar el campo total en la tabla Pedidos
+
+
+		CREATE OR REPLACE TRIGGER calculate_total AFTER insert or update ON detalles_pedido
+		FOR EACH ROW
+		declare
+			v_total number;
+		begin
+			select sum(cantidad*precio_unidad) into v_total from detalles_pedido where codigo_pedido =: new.codigo_pedido;
+			update Pedidos set total = v_total where codigo_pedido =: new.codigo_pedido;
+		end;
+
+
+
+-- EJERCICIO 4. Crea un trigger que se active después de insertar o actualizar un detalle de
+pedido en la tabla Detalles_pedido. El trigger debe verificar si todos los productos de un
+pedido han sido entregados y, si es así, actualizar automáticamente el estado del pedido a
+"Entregado" en la tabla Pedidos.
+
+
+		CREATE OR REPLACE TRIGGER vierificar_pedidos AFTER insert or update ON detalles_pedido
+		FOR EACH ROW
+		declare
+			v_entregado number;
+		begin
+		 
+			select entregado into v_entregado from detalles_pedido where codigo_pedido =: new.codigo_pedido;
+			if v_entregado = 1 then
+				update Pedidos set estado = 'Entregado'  where codigo_pedido =: new.codigo_pedido;
+			end if;
+		end;
+
+
+
+
+
+-- EJERCICIO 5. Crea un trigger que, después de insertar un nuevo pedido en la tabla "Pedidos",
+-- actualice la cantidad en stock de todos los productos asociados a ese pedido en la tabla
+-- "Detalles_pedido". Utiliza un cursor para recorrer los detalles del pedido y actualizar la
+-- cantidad en stock de cada producto.
+
+
+
+CREATE OR REPLACE TRIGGER t_update_stock AFTER insert or update ON Pedidos
+FOR EACH ROW
+declare
+	cursor d_recorre_detalles is 
+   	select * from detalles_pedido where codigo_pedido =: new.codigo_pedido;  
+begin
+ 	for v_detalle in d_recorre_detalles loop
+    update productos set cantidad_en_stock = cantidad_en_stock - v_detalle.cantidad
+    where codigo_producto = v_detalle.codigo_producto;
+	end loop;
+end;

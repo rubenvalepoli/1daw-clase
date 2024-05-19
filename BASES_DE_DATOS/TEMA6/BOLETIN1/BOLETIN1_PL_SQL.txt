@@ -1,87 +1,67 @@
 EJERCICIO 1. Crea una función que sume dos números y devuelva el resultado. Realiza una
 llamada a dicha función desde un bloque anónimo.
 	
-* 1 forma de resolver*
+		create or replace function sumar(num1 in number,num2 in number) return number
+		is
+			total number;
+		begin
+			total := num1 + num2;
+			return total;
+		end;
+		/
 
-	DECLARE
 
-		v_num1 INT;
-		v_num2 INT;
-		v_num3 INT;
-
-	BEGIN
-
-		v_num1 := 10;
-		v_num2 := 8;
-
-		v_num3:= v_num1 + v_num2;
-
-		dbms_output.put_line('la suma de los dos numeros es ' || v_num3);
-
-	END;
-	
-	
-	
-	
-		
-*2 forma de resolver*
-
-	create or replace function sumar (num1 in number,num2 in number) return number
-	is
-		total number;
-	begin
-		total := num1 + num2;
-		return total;
-	end;
-	/
-
-	declare
-		resultado number;
-	begin
-		resultado := sumar(5,5);
-		dbms_output.put_line('El resultado es: '|| resultado);
-	end;
+		declare
+			resultado number;
+		begin
+			resultado := sumar(10,5);
+			DBMS_OUTPUT.PUT_LINE('Soy una cadena' || resultado);
+		end;
 	
 
 EJERCICIO 2. Crear una función que calcule el área de un triángulo dado su base y altura.
 Realiza una llamada a dicha función desde un bloque anónimo.
 
+		create or replace function area(base in number,altura in number) return number
+		is
+			area number;
+		begin
+			area := (base*altura)/2;
+			return area;
+		end;
+		/
 
-	DECLARE
 
-		v_base INT;
-		v_altura INT;
-		v_area INT;
-
-	BEGIN
-
-		v_base := 10;
-		v_altura := 8;
-
-		v_area:= v_base * v_altura /2;
-
-		dbms_output.put_line('El area del triangulo es ' || v_area);
-
-	END;
+		declare
+			resultado number;
+		begin
+			resultado := area(10,5);
+			DBMS_OUTPUT.PUT_LINE('Area de el triangulo: ' || resultado);
+		end;
 	
 	
 EJERCICIO 3. Crea una función que determine si un número dado es par o impar. Realiza una
 llamada a dicha función desde un bloque anónimo.
 
-	DECLARE
-		numero INT;
-		
-	BEGIN
 
-		numero := 11;
+		Create or replace function par_impar (num number) return varchar2
+		is 
+		begin
+			if MOD(num, 2)= 0 THEN
+				return 'par';
+			else 
+				return 'impar';
+			end if;
+		end;
+		/
 
-		IF (MOD(numero,2)= 0) then 
-
-		dbms_output.put_line('El numero es par');
-		ELSE
-			dbms_output.put_line('El numero es impar');
-		END IF;
-	END;
+		declare
+			resultado varchar2(10);
+		begin
+			resultado := par_impar(8);
+			DBMS_OUTPUT.PUT_LINE('el numero es: ' || resultado);
+		end;
+		/
 
 
 EJERCICIO 4. Crea una función que calcule el factorial de un número dado. Realiza una

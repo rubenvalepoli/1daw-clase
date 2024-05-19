@@ -1,0 +1,171 @@
+-- EJERCICIO 1. Escribe un cursor que seleccione empleados junto con el nombre de su
+departamento. Después recorre dicho cursor y muestra su contenido.
+
+
+	DECLARE CURSOR c_seleccionar IS 
+
+		select e.nombre, d.nombre from empleados e inner join departamentos d on (e.departamento_id = d.id);
+
+		v_nombre_empleado empleados.nombre%type;
+		v_nombre_departamento departamentos.nombre%type;
+
+	BEGIN
+		OPEN c_seleccionar;
+			LOOP
+			FETCH c_seleccionar INTO v_nombre_empleado, v_nombre_departamento;
+			EXIT WHEN c_seleccionar %NOTFOUND;
+			END LOOP;
+		CLOSE c_seleccionar;
+	END;
+	
+
+-- EJERCICIO 2. Escribe un cursor que seleccione empleados de un departamento específico que
+se le pase como parámetro y muestre su nombre y salario.	
+
+		DECLARE CURSOR c_empleado (departamento number) IS 
+
+			select e.nombre, e.salario, e.departamento_id from empleados e where departamento_id = departamento;
+
+			v_nombre empleados.nombre%type;
+			v_salario empleados.salario%type;
+			v_departamento empleados.departamento_id%type;
+
+		BEGIN
+			OPEN c_empleado(1);
+				LOOP
+				FETCH c_empleado INTO v_nombre, v_salario, v_departamento;
+				EXIT WHEN c_empleado %NOTFOUND;
+				dbms_output.put_line('Empleado: ' || v_nombre || 'con salario: '|| v_salario ||' con numero de departamento ' || v_departamento);
+				END LOOP;
+			CLOSE c_empleado;
+		END;
+
+
+-- EJERCICIO 3. Escribe un cursor que muestre el nombre y salario de los empleados hasta que
+el salario sea mayor que 4000.
+
+
+		DECLARE CURSOR c_salario  IS 
+
+			select e.nombre, e.salario from empleados e where salario<4000;
+
+			v_nombre empleados.nombre%type;
+			v_salario empleados.salario%type;
+
+		BEGIN
+			OPEN c_salario;
+				LOOP
+				FETCH c_salario INTO v_nombre, v_salario;
+				EXIT WHEN c_salario %NOTFOUND;
+				dbms_output.put_line('Empleado: ' || v_nombre ||' con salario ' || v_salario);
+				END LOOP;
+			CLOSE c_salario;
+		END;
+
+
+-- EJERCICIO 4. Escribe un cursor que seleccione empleados y muestre su nombre y salario,
+manejando la excepción de cuando no hay datos disponibles.
+
+
+		DECLARE CURSOR c_salario  IS 
+
+			select e.nombre, e.salario from empleados e where salario<4000;
+
+			v_nombre empleados.nombre%type;
+			v_salario empleados.salario%type;
+
+		BEGIN
+			OPEN c_salario;
+				LOOP
+				FETCH c_salario INTO v_nombre, v_salario;
+				EXIT WHEN c_salario %NOTFOUND;
+				dbms_output.put_line('Empleado: ' || v_nombre ||' con salario ' || v_salario);
+				END LOOP;
+			CLOSE c_salario;
+
+		EXCEPTION
+
+			when no_data_found then
+			dbms_output.put_line('No hay datos');
+		END;
+
+-- EJERCICIO 5. Escribe un cursor que cuente el número de empleados y muestre el total.
+
+	-- FORMA CHAPUCERA DE HACERLO
+			
+		DECLARE CURSOR c_num_empleados  IS 
+
+			select count(e.nombre) from empleados e;
+
+			v_nombre empleados.nombre%type;
+
+		BEGIN
+			OPEN c_num_empleados;
+				LOOP
+				FETCH c_num_empleados INTO v_nombre;
+				EXIT WHEN c_num_empleados %NOTFOUND;
+				dbms_output.put_line('Empleado: ' || v_nombre);
+				END LOOP;
+			CLOSE c_num_empleados;
+
+		EXCEPTION
+
+			when no_data_found then
+			dbms_output.put_line('No hay datos');
+		END;
+
+	-- FORMA BUENA DE HACERLO
+
+		DECLARE CURSOR c_num_empleados  IS 
+
+			select e.nombre from empleados e;
+
+			v_nombre empleados.nombre%type;
+			v_num_empleados number :=0;
+
+		BEGIN
+			OPEN c_num_empleados;
+				LOOP
+					FETCH c_num_empleados INTO v_nombre;
+					EXIT WHEN c_num_empleados %NOTFOUND;
+					v_num_empleados := v_num_empleados +1;
+				END LOOP;
+			CLOSE c_num_empleados;
+				dbms_output.put_line('Numero total empleados: ' || v_num_empleados);
+
+		EXCEPTION
+
+			when no_data_found then
+			dbms_output.put_line('No hay datos');
+		END;
+
+
+-- EJERCICIO 6. Escribe un cursor que actualice el salario de todos los empleados en un
+departamento específico
+
+		DECLARE CURSOR c_empleado  IS 
+
+			select e.nombre, e.salario, e.departamento_id from empleados e where departamento_id = 1;
+
+				v_nombre empleados.nombre%type;
+				v_salario empleados.salario%type;
+				v_departamento empleados.departamento_id%type;
+
+			BEGIN
+				OPEN c_empleado;
+					LOOP
+					FETCH c_empleado INTO v_nombre, v_salario, v_departamento;
+					EXIT WHEN c_empleado %NOTFOUND;
+					update empleados set salario=salario*3;
+					dbms_output.put_line('Empleado: ' || v_nombre ||' con numero de departamento ' || v_departamento || ' y un salario de: ' || v_salario);
+					END LOOP;
+
+				CLOSE c_empleado;
+
+			EXCEPTION
+
+				when no_data_found then
+				dbms_output.put_line('No hay datos');
+		END;
+
+

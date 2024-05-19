@@ -20,7 +20,7 @@
 	CREATE OR REPLACE TRIGGER t_total AFTER insert or update ON detalles_pedido
 	FOR EACH ROW
 	BEGIN
-		update Productos set cantidad_en_stock = cantidad_en_stock := new.cantidad
+		update Productos set cantidad_en_stock = cantidad_en_stock -: new.cantidad
 		where codigo_producto = new.codigo_producto;
 	END;
 
@@ -45,7 +45,7 @@
 			set total = v_total
 			where codigo_pedido=:new.codigo_pedido;
 
-		end
+		end;
 		/
 
 
@@ -91,10 +91,7 @@
 		for each row
 		declare
 			cursor c_detalle_pedido is
-			select *
-			from detalles_pedido
-			where codigo_pedido:=new.codigo_pedido;
-
+			select * from detalles_pedido where codigo_pedido:=new.codigo_pedido;
 		begin
 
 			for v_detalle in c_detalle_pedido loop
