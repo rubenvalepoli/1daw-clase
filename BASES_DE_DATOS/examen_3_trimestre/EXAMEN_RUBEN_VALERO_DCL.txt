@@ -1,0 +1,165 @@
+BLOQUE 2. TCL (MYSQL) 2 puntos
+Imagina que hay una promoción en el aeropuerto que permite obtener un descuento especial en
+vuelos reservados durante un evento específico. Hay plazas limitadas, y necesitas asegurarte de que
+durante la transacción:
+
+
+1. Se reduzca el número de asientos disponibles en el vuelo.
+
+
+2. Se registre la reserva en la tabla Reservas. Por simplicidad, usa un cliente y un vuelo que ya
+exista en la base de datos.
+
+
+Es muy importante garantizar la consistencia de los datos, y cumplir de la manera más estricta las
+restricciones ACID.
+
+
+Por otro lado, hay que controlar la concurrencia entre las transacciones, para no cometer ningún tipo
+de fallo.
+
+
+
+Para este bloque, deberás entregar un archivo sql con la transacción. Al inicio de la
+transacción, dentro de un comentario, deberás indicar los cambios adicionales que hayas
+tenido que realizar en el SGBD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BLOQUE 3 PL/SQL (ORACLE)
+Script1 2 puntos
+Se pide que escribas un subprograma (función o procedimiento) en PL/SQL que, dado un cliente (que
+se le pasará como parámetro), nos devuelva el número de reservas que ha realizado dicho cliente.
+
+
+create or replace function numero_reservas (id in number)return number
+	is
+		total number; 
+	begin
+        select count(r.reserva_id) into total from reservas r inner join clientes c on (c.cliente_id = r.cliente_id) where (c.cliente_id=id);
+		return total;
+	end;
+	/
+	
+	declare
+		resultado number;
+	begin
+		resultado := numero_reservas (1);
+		DBMS_OUTPUT.PUT_LINE('El cliente ha reservado : ' || resultado ||' vuelo');
+	end;
+	
+
+
+Script2 4 puntos
+En una aerolínea, se necesita automatizar la actualización del estado de un vuelo basado en la
+disponibilidad de asientos. Para ello, se solicita la creación de un trigger que se active después de
+cada inserción en la tabla reserva. Este trigger actualizará automáticamente el estado del vuelo
+correspondiente en la tabla vuelos, cambiándolo a "Agotado" si ya no quedan asientos disponibles.
+
+
+		CREATE OR REPLACE TRIGGER t_actualizar_estado AFTER insert ON reservas
+	for each row
+	declare
+		cursor c_recorrer_asientos is
+		select asientos_disponibles from vuelos where vuelo_id = :new.vuelo_id;
+	begin
+		for v_asiento in c_recorrer_asientos loop
+        	if v_asiento.asientos_disponibles = 0
+        	then
+				update vuelos set estado = 'Agotado' where vuelo_id = :new.vuelo_id;
+			end if;
+		end loop;
+	end;
+	
+
+Para este bloque, deberás entregar un archivo sql con los dos scripts PL/SQL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create or replace function numero_reservas (nombre in varchar2)return number
+	is
+		total number; 
+	begin
+        loop
+		for i in 1..num loop
+		resultado := resultado+1
+		end loop;
+		end;
+		/
+		total:= num1 + num2;
+		return total;
+	end;
+	/
+	
+	
+	
+	declare
+		resultado number;
+	begin
+		resultado := nombre_funcion (5,10);
+		DBMS_OUTPUT.PUT_LINE('el numero es: ' || resultado);
+	end;
+	
+	
+	select count(r.reserva_id) from reservas r inner join clientes c on (c.cliente_id = r.cliente_id) where (c.cliente_id=2);

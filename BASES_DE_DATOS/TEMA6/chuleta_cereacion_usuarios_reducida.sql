@@ -35,7 +35,8 @@
     
 -- TRANSACCIONES
 
-	set AUTOCOMMIT=0/1;
+	set @@AUTOCOMMIT=0/1;	-- para variable de sesion
+	set @@GLOBAL.AUTOCOCOMMIT=0/1;	-- para valriable gloval
 	start transaction;
     commit;
     savepoint 'nombre';
