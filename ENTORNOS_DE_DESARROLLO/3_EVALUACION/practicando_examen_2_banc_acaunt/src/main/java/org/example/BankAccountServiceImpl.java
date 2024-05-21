@@ -15,7 +15,7 @@ public class BankAccountServiceImpl implements BankAccountService {
 
     public List<BankAccount> getAll() {
         List<BankAccount> bankAccounts = bankAccountRepository.getAll();
-        //bankAccounts.sort(Comparator.comparing(BankAccount::getAccountNumber));
+        bankAccounts.sort(Comparator.comparing(BankAccount::getAccountNumber));
         return bankAccounts;
     }
 

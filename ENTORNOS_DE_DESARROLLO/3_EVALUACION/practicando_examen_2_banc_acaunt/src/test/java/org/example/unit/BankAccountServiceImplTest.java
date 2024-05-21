@@ -1,8 +1,6 @@
-package org.example;
+package org.example.unit;
 
-import mock.BanckAccountRepositoryMock;
-import mock.NotificationServiceMock;
-import org.junit.jupiter.api.BeforeEach;
+import org.example.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -12,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,19 +34,33 @@ class BankAccountServiceImplTest {
     BankAccount bankAccount2= new BankAccount("2","Isabel",200);
     BankAccount bankAccount3= new BankAccount("3","Pepa",300);
     BankAccount bankAccount4= new BankAccount("4","So",400);
-   List<BankAccount> bankAccountList = List.of(
-            bankAccount1, bankAccount2,bankAccount3,bankAccount4
-    );
+
+    List<BankAccount> bankAccountList = new ArrayList<>();
 
 
     @Nested
     public class NestedGetAll{
 
+
+        @Test
+        @DisplayName("return void List")
+        void returnListoff(){
+            when(bankAccountRepositoryMock.getAll()).thenReturn(bankAccountList);
+            assertEquals(bankAccountList, bankAccountService.getAll());
+        }
+
+
+
        @Test
         @DisplayName("return all accounts")
         void returnAllAccounts(){
+           bankAccountList.add(bankAccount2);
+           bankAccountList.add(bankAccount3);
+           bankAccountList.add(bankAccount1);
+           bankAccountList.add(bankAccount4);
            when(bankAccountRepositoryMock.getAll()).thenReturn(bankAccountList);
-           assertEquals(bankAccountRepositoryMock.getAll(),bankAccountService.getAll());
+           List<BankAccount> expectedList = List.of(bankAccount1,bankAccount2,bankAccount3,bankAccount4);
+           assertEquals(expectedList,bankAccountService.getAll());
         }
 
     }

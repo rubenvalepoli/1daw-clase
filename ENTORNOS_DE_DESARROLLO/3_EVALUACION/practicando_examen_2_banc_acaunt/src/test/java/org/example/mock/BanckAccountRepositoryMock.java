@@ -1,4 +1,4 @@
-package mock;
+package org.example.mock;
 
 import org.example.BankAccount;
 import org.example.BankAccountRepository;
