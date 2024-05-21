@@ -21,7 +21,7 @@ public class BankAccountRepositoryImpl implements BankAccountRepository{
         if (bankAccountDao == null){
             return null;
         }
-        return this.getBankAccountByNumber(accountNumber);
+        return this.bankAccountDao.getBankAccountByNumber(accountNumber);
     }
 
     @Override

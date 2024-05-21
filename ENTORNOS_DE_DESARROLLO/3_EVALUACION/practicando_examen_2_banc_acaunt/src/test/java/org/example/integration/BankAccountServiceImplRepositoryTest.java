@@ -1,33 +1,32 @@
-package org.example.unit;
+package org.example.integration;
 
 import org.example.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
+class BankAccountServiceImplRepositoryTest {
 
-
-class BankAccountServiceImplTest {
-
-    @Mock
-    private BankAccountRepository bankAccountRepositoryMock;
-    @Mock
-    private NotificationService notificationServiceMock;
-
-    @InjectMocks
-    private BankAccountServiceImpl bankAccountService;
+    private final BankAccountDao bankAccountDaoMock = Mockito.mock(BankAccountDao.class);
+    private final NotificationService notificationServiceMock = Mockito.mock(NotificationService.class);
+    private final BankAccountRepository bankAccountRepository = new BankAccountRepositoryImpl(bankAccountDaoMock);
+   private final BankAccountServiceImpl bankAccountService = new BankAccountServiceImpl(bankAccountRepository, notificationServiceMock);
 
 
     BankAccount bankAccount1= new BankAccount("1","Ruben",100);
@@ -41,52 +40,48 @@ class BankAccountServiceImplTest {
     @Nested
     public class NestedGetAll{
 
-
         @Test
-        @DisplayName("return void List")
-        void returnListoff(){
-            when(bankAccountRepositoryMock.getAll()).thenReturn(bankAccountList);
+        @DisplayName("return void list")
+        void returnVoidList() {
+            when(bankAccountDaoMock.getAll()).thenReturn(bankAccountList);
             assertEquals(bankAccountList, bankAccountService.getAll());
         }
 
-
-
-       @Test
-        @DisplayName("return all accounts")
+        @Test
+        @DisplayName("return all acounts")
         void returnAllAccounts(){
-           bankAccountList.add(bankAccount2);
-           bankAccountList.add(bankAccount3);
-           bankAccountList.add(bankAccount1);
-           bankAccountList.add(bankAccount4);
-           when(bankAccountRepositoryMock.getAll()).thenReturn(bankAccountList);
-           List<BankAccount> expectedList = List.of(bankAccount1,bankAccount2,bankAccount3,bankAccount4);
-           assertEquals(expectedList,bankAccountService.getAll());
+            bankAccountList.add(bankAccount2);
+            bankAccountList.add(bankAccount3);
+            bankAccountList.add(bankAccount1);
+            bankAccountList.add(bankAccount4);
+
+            when(bankAccountDaoMock.getAll()).thenReturn(bankAccountList);
+            List<BankAccount> expectedList = List.of(bankAccount1,bankAccount2,bankAccount3,bankAccount4);
+            assertEquals(expectedList,bankAccountService.getAll());
         }
-
     }
-
 
     @Nested
     public class NestedGetBankAccountByNumber{
 
         @Test
-        @DisplayName("account number doesen't exist")
+        @DisplayName("account number does not exist")
         void accountNumberNotExits(){
-            when(bankAccountRepositoryMock.getBankAccountByNumber("123mr13")).thenReturn(null);
+            when(bankAccountDaoMock.getBankAccountByNumber("123mr13")).thenReturn(null);
             assertThrows(BankAccountNotFoundException.class, () -> bankAccountService.getBankAccountByNumber("123mr13"));
         }
 
         @Test
         @DisplayName("account number exist")
         void acountNumberExits() throws BankAccountNotFoundException {
-            when(bankAccountRepositoryMock.getBankAccountByNumber("1")).thenReturn(bankAccount1);
+            when(bankAccountDaoMock.getBankAccountByNumber("1")).thenReturn(bankAccount1);
             assertEquals(bankAccount1, bankAccountService.getBankAccountByNumber("1"));
         }
-
-
     }
+
     @Nested
     public class NestedUpdateAccountHolder{
+
 
         @Test
         @DisplayName("Holder name must be long than 3 characters long")
@@ -96,14 +91,14 @@ class BankAccountServiceImplTest {
 
         }
 
+
         @Test
         @DisplayName("account holder name is correctly changed")
         void accountHolderGetNotification() throws InvalidAccountHolderNameException {
             bankAccountService.updateAccountHolder(bankAccount1,"Pepe");
             assertEquals("Pepe", bankAccount1.getAccountHolder());
             verify(notificationServiceMock).notifyUpdateAccountHolderChange(bankAccount1);
-            verify(bankAccountRepositoryMock).updateAccountHolder(bankAccount1);
+            verify(bankAccountDaoMock).updateAccountHolder(bankAccount1);
         }
     }
-
 }

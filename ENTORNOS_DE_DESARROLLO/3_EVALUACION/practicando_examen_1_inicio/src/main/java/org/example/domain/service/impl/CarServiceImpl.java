@@ -1,13 +1,14 @@
 package org.example.domain.service.impl;
 
 import org.example.controller.Car;
+import org.example.domain.service.CarService;
 import org.example.domain.service.IndicatorService;
 import org.example.exception.ResourceNotFoundException;
 import org.example.persistence.repository.CarRepository;
 
 import java.util.List;
 
-public class CarServiceImpl {
+public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
     private final IndicatorService indicatorService;

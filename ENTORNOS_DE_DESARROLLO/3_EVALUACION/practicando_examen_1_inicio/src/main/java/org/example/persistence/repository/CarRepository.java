@@ -9,5 +9,5 @@ import java.util.List;
 public interface CarRepository {
 
     List<Car> findAll();
-    Car findByPlate(String plate) throws ResourceNotFoundException;
+    Car findByPlate(String plate) throws  ResourceNotFoundException;
 }

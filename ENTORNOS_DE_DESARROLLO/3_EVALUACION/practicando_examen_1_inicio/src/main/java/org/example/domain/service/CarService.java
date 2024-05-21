@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface CarService {
     List<Car> findAll();
-    Car findByPlate(String plate) throws ResourceNotFoundException;
+    Car findByPlate(String plate) throws  ResourceNotFoundException;
     void accelerate(Car car, double speed);
 }
