@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55931710-8809-4699-bf7f-e8420938585f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../practicando_examen_2_banc_acaunt/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practicando_examen_2_banc_acaunt/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/.idea/utbot-settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/BankAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/BankAccountNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/BankAccountRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/BankAccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/BankAccountServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/InvalidAccountHolderNameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/main/java/org/example/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/test/java/org/example/BankAccountServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/test/java/org/example/BankAccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/test/resources/utbot-sarif-report/org/example/BankAccountServiceImplReport.sarif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicando_examen_2_banc_acaunt/practicando_examen_2_banc_acaunt/src/test/resources/utbot-sarif-report/practicando_examen_2_banc_acauntReport.sarif" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2goMMDpoGPTtM1qCLiwcCYLwwPi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/kronomav/Desktop/grado_superior/1daw-clase/ENTORNOS_DE_DESARROLLO/3_EVALUACION/prueba"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55931710-8809-4699-bf7f-e8420938585f" name="Changes" comment="" />
+      <created>1716359427505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716359427505</updated>
+    </task>
+    <servers />
+  </component>
+</project>
