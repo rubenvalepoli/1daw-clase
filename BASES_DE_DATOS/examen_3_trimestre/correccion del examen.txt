@@ -1,0 +1,98 @@
+BLOQUE 1. DCL (MYSQL) 2 puntos
+Partiendo del script SQL que tenéis en AULES, debéis realizar las siguientes las siguientes
+acciones:
+1. Crea un usuario llamado tunombre_vuelo con la contraseña vuelo123.
+
+	create user 'ruben'@'localhost' identify by"frffr";
+
+2. Concede al usuario tunombre_vuelo permisos de SELECT e INSERT en la tabla vuelos.
+
+	grant select, inset on aeropuesto.vuelos to 'ruben'@'localhost';
+
+3. Crea un rol llamado gestor con permisos de SELECT y UPDATE en la tabla clientes.
+
+		grant select, inset on aeropuesto.clientes to gestor;
+
+
+4. Asigna este rol al usuario tunombre_vuelo.
+
+		grent gestor to 'ruben'@'localhost';
+
+5. Elimina todos los permisos asignados al usuario tunombre_vuelo.
+
+	revoke select, insert on aeropuerto.cliente from 'ruben'@'localhost';
+
+6. Elimina al usuario tunombre_vuelo
+
+	drop user 'ruben'@'localhost';
+
+
+
+
+BLOQUE 2. TCL (MYSQL) 2 puntos
+Imagina que hay una promoción en el aeropuerto que permite obtener un descuento especial en
+vuelos reservados durante un evento específico. Hay plazas limitadas, y necesitas asegurarte de que
+durante la transacción:
+1. Se reduzca el número de asientos disponibles en el vuelo.
+2. Se registre la reserva en la tabla Reservas. Por simplicidad, usa un cliente y un vuelo que ya
+exista en la base de datos.
+Es muy importante garantizar la consistencia de los datos, y cumplir de la manera más estricta las
+restricciones ACID.
+Por otro lado, hay que controlar la concurrencia entre las transacciones, para no cometer ningún tipo
+de fallo.
+
+
+
+	set @@autocommit=0;
+	
+	set transaction isolation level serializable;
+	
+	update vuelos set asientos_disponibles = asientos_disponibles-1 where codigo_vuelo.....
+
+	INSERT
+	
+	COMMIT;
+
+
+
+
+
+BLOQUE 3 PL/SQL (ORACLE)
+Script1 2 puntos
+Se pide que escribas un subprograma (función o procedimiento) en PL/SQL que, dado un cliente (que
+se le pasará como parámetro), nos devuelva el número de reservas que ha realizado dicho cliente.
+
+	
+	create or replace function calcular(p_cliente number) return number
+	IS
+		v_cantidad number;	
+	BEGUIN
+		select count(*)into v_cantidad from reservas where cliente_id = p_cliente;
+	END;	
+	
+
+Script2 4 puntos
+En una aerolínea, se necesita automatizar la actualización del estado de un vuelo basado en la
+disponibilidad de asientos. Para ello, se solicita la creación de un trigger que se active después de
+cada inserción en la tabla reserva. Este trigger actualizará automáticamente el estado del vuelo
+correspondiente en la tabla vuelos, cambiándolo a "Agotado" si ya no quedan asientos disponibles.
+
+	create or replace trigger t_actualizar after insert on reservas
+	for each row
+	
+	DECLARE
+		v_cantidad number;
+	
+	
+	BEGIN
+		select asientos_disponibles into v_cantidad from vuelos where vuelo_id =: new.vuelo_id; 
+		
+		if v_cantidad <=0 then
+		
+			update vuelos set estado='Completo' where vuelo_id =: new.vuelo_id;
+		
+		end if;
+	
+	end;	
+	
+	
