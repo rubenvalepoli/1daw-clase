@@ -1,3 +1,5 @@
+Windows CLASE
+
 Contraseña awd Service conexion remota: !mG$@g;C8E;z@JfX9l2.@m*jpvTDkR$Q
 Usuario awd Service conexion remota: Administrator
 contraseña DnsServer Alumno.
@@ -5,3 +7,18 @@ contraseña DnsServer Alumno.
 
 Contraseña cliente : fp%*raL45tB@1xh41H?7m!(obfhI.5Qv
 Usuario: Administrator
+
+
+Windows Estudiando
+
+Server
+
+Contraseña awd Service conexion remota: r$).@kZ.G9xFVkVu*1M15c%t6dMPD7Sq
+Usuario awd Service conexion remota: Administrator
+
+
+
+Cliente
+
+Contraseña awd Service conexion remota: aK*?=C=feEW6jaR4F!cjX)=ehuAoZ583
+Usuario awd Service conexion remota: Administrator
