@@ -16,6 +16,12 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
+    public Integer dobleid(Integer id, Integer dobleid) {
+        return dobleid;
+    }
+
+
+    @Override
     public Book findById(Integer id) {
         return this.repository.id(id);
     }

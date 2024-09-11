@@ -1,6 +1,6 @@
 package ejercicios.tema08.ejercicio01;
 
-public class Main {
+public class ñMain {
 
     public static void main(String[] args) {
         Coche coche1 = new Coche();

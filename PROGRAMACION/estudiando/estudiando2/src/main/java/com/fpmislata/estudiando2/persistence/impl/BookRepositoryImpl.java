@@ -11,13 +11,23 @@ public class BookRepositoryImpl implements BookRepository {
     public List<Book> bookList = new ArrayList<>();
 
     public BookRepositoryImpl(){
-        bookList.add(new Book(1,"Rosas","Pepe"));
-        bookList.add(new Book(2,"Tulipanes","Pablo"));
-        bookList.add(new Book(3,"Margaritas","Hector"));
+        bookList.add(new Book(1,1,"Rosas","Pepe"));
+        bookList.add(new Book(2,2,"Tulipanes","Pablo"));
+        bookList.add(new Book(3,3,"Margaritas","Hector"));
     }
 
     @Override
     public List<Book> all() {return this.bookList;
+    }
+
+    @Override
+    public Integer dobleid(Integer id,Integer dobleid) {
+
+        BookRepository bookRepository = (id,dobleid) -> {
+            return id + dobleid;
+        };
+
+        return dobleid;
     }
 
     @Override
