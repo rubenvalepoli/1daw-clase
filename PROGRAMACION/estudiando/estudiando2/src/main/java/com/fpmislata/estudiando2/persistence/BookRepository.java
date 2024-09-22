@@ -8,6 +8,8 @@ public interface BookRepository {
 
     public List<Book> all();
 
+    public Integer dobleid(Integer id, Integer dobleid);
+
     public Book id(Integer id);
 
     public Book createbook(Book book);
